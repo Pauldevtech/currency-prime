@@ -1,14 +1,14 @@
 // src/components/RatesTable/RatesTable.tsx
 import React from 'react';
 import { 
-  TableContainer,
-  TableTitle,
-  TableWrapper, 
-  Table, 
-  Th, 
-  Td, 
-  Tr,
-} from './styles';
+    TableContainer,
+    TableTitle,
+    TableWrapper, 
+    Table, 
+    Th, 
+    Td, 
+    Tr
+  } from '../../styles/common/TableStyles';
 
 const dummyRates = [
   { currency: 'EUR', amount: 1, rate: 24.85 },

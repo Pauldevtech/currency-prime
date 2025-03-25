@@ -1,8 +1,10 @@
+// src/App.tsx
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
 import Header from './components/Header/Header';
 import RatesTable from './components/RatesTable/RatesTable';
+import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter';
 import { Hero, HeroContent, MainContent, Footer } from './styles/Layout';
 
 const App = () => {
@@ -19,6 +21,7 @@ const App = () => {
       </Hero>
 
       <MainContent>
+        <CurrencyConverter />
         <RatesTable />
       </MainContent>
 

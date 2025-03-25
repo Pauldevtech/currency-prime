@@ -1,4 +1,5 @@
-import styled from "styled-components";
+// src/styles/common/TableStyles.ts
+import styled from 'styled-components';
 
 export const TableContainer = styled.div`
   max-width: 800px;
@@ -22,28 +23,33 @@ export const TableWrapper = styled.div`
 
 export const Table = styled.table`
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; // Added for consistent column widths
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
 `;
 
 export const Th = styled.th`
-  padding: 1.2rem;
+  padding: 1.5rem;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
-  width: 33.33%; // Equal width for all columns
-  text-align: center; // Center align all headers
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
 `;
 
 export const Td = styled.td`
   padding: 1.2rem;
-  color: ${({ theme }) => theme.colors.text};
-  text-align: center; // Center align all data
+  text-align: center;
+  font-size: 1.1rem;
 `;
 
 export const Tr = styled.tr`
-  &:nth-child(even) {
-    background-color: ${({ theme }) => theme.colors.background};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.background};
+  
+  &:last-child {
+    border-bottom: none;
   }
 
   &:hover {
