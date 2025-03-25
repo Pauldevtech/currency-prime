@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const Hero = styled.section`
-  height: 70vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   text-align: center;
