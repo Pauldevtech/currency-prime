@@ -1,15 +1,30 @@
-import { Container } from "./styles/Container";
-import { GlobalStyles } from "./styles/globalStyles";
+// src/App.tsx
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
+import Header from "./components/Header/Header";
+import { Hero, HeroContent, MainContent, Footer } from "./styles/Layout";
 
 const App = () => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Container>
-        <h1>Currency Prime</h1>
-        <p>Welcome to Currency Prime! Fetching exchange rates...</p>
-      </Container>
-    </>
+      <Header />
+
+      <Hero>
+        <HeroContent>
+          <h1>Exchange Currencies with Ease</h1>
+          <p>Discover real-time exchange rates and convert currencies effortlessly.</p>
+        </HeroContent>
+      </Hero>
+
+      <MainContent></MainContent>
+
+      <Footer>
+        <p>© 2024 Currency Prime | All rights reserved</p>
+      </Footer>
+    </ThemeProvider>
   );
 };
 
