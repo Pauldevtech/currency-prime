@@ -1,4 +1,3 @@
-// src/components/RatesTable/RatesTable.tsx
 import React from 'react';
 import { 
     TableContainer,

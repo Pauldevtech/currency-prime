@@ -1,13 +1,12 @@
-// src/styles/Layout.ts
 import styled from 'styled-components';
 
 export const Hero = styled.section`
-  height: 50vh;
+  height: 40vh;
   display: flex;
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.text};  // Using the dark slate color
+  background-color: ${({ theme }) => theme.colors.text}; 
 `;
 
 export const HeroContent = styled.div`

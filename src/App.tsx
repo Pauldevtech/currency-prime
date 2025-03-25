@@ -1,18 +1,17 @@
-// src/App.tsx
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './styles/GlobalStyles';
-import { theme } from './styles/theme';
-import Header from './components/Header/Header';
-import RatesTable from './components/RatesTable/RatesTable';
-import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter';
-import { Hero, HeroContent, MainContent, Footer } from './styles/Layout';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
+import Header from "./components/Header/Header";
+import RatesTable from "./components/RatesTable/RatesTable";
+import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
+import { Hero, HeroContent, MainContent, Footer } from "./styles/Layout";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
-      
+
       <Hero>
         <HeroContent>
           <h1>Exchange Currencies with Ease</h1>

@@ -1,4 +1,3 @@
-// src/styles/common/TableStyles.ts
 import styled from 'styled-components';
 
 export const TableContainer = styled.div`
