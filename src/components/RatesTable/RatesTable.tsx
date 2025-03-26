@@ -1,18 +1,16 @@
-// src/components/RatesTable/RatesTable.tsx
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import * as Flags from 'country-flag-icons/react/3x2';
 import sdrLogo from '../../assets/sdr.png';
-import { 
+import {
   TableContainer,
   TableTitle,
-  TableWrapper, 
-  Table, 
-  Th, 
-  Td, 
-  Tr
-} from '../../styles/common/TableStyles';
-import {
+  TableWrapper,
+  Table,
+  Thead,
+  Th,
+  Td,
+  Tr,
   CurrencyCell,
   FlagWrapper,
   CustomFlag,
@@ -52,15 +50,15 @@ const RatesTable: React.FC = () => {
       <TableTitle>Exchange Rates</TableTitle>
       <TableWrapper>
         <Table>
-          <thead>
-            <tr>
+          <Thead>
+            <Tr>
               <Th>Code</Th>
               <Th>Country</Th>
               <Th>Name</Th>
               <Th>Unit</Th>
               <Th>Rate (CZK)</Th>
-            </tr>
-          </thead>
+            </Tr>
+          </Thead>
           <tbody>
             {rates?.map((rate) => (
               <Tr key={rate.code}>

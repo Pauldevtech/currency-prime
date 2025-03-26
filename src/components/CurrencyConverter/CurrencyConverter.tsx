@@ -1,14 +1,5 @@
-// src/components/CurrencyConverter/CurrencyConverter.tsx
-import React, { useState, useEffect } from 'react';
-import {
-  TableContainer,
-  TableTitle,
-  TableWrapper,
-  Table,
-  Th,
-  Td,
-} from '../../styles/common/TableStyles';
-import { Input, Select } from './styles';
+import React, { useState, useEffect } from "react";
+import { TableContainer, TableTitle, TableWrapper, Table, Th, Td, Input, Select, Tr, Thead } from "./styles";
 
 const rates = {
   EUR: 24.85,
@@ -22,9 +13,9 @@ const rates = {
 };
 
 const CurrencyConverter: React.FC = () => {
-  const [amount, setAmount] = useState<string>('');
-  const [currency, setCurrency] = useState<string>('EUR');
-  const [result, setResult] = useState<string>('');
+  const [amount, setAmount] = useState<string>("");
+  const [currency, setCurrency] = useState<string>("EUR");
+  const [result, setResult] = useState<string>("");
 
   useEffect(() => {
     if (amount && !isNaN(Number(amount))) {
@@ -32,7 +23,7 @@ const CurrencyConverter: React.FC = () => {
       const converted = (Number(amount) / rate).toFixed(2);
       setResult(`${converted} ${currency}`);
     } else {
-      setResult('—');
+      setResult("—");
     }
   }, [amount, currency]);
 
@@ -41,26 +32,26 @@ const CurrencyConverter: React.FC = () => {
       <TableTitle>Currency Converter</TableTitle>
       <TableWrapper>
         <Table>
-          <thead>
-            <tr>
+          <Thead>
+            <Tr>
               <Th>Amount (CZK)</Th>
               <Th>Convert to</Th>
               <Th>Result</Th>
-            </tr>
-          </thead>
+            </Tr>
+          </Thead>
           <tbody>
-            <tr>
+            <Tr>
               <Td>
-                <Input
-                  type="number"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  placeholder="0"
+                <Input 
+                  type="number" 
+                  value={amount} 
+                  onChange={(e) => setAmount(e.target.value)} 
+                  placeholder="0" 
                 />
               </Td>
               <Td>
-                <Select
-                  value={currency}
+                <Select 
+                  value={currency} 
                   onChange={(e) => setCurrency(e.target.value)}
                 >
                   {Object.keys(rates).map((curr) => (
@@ -71,7 +62,7 @@ const CurrencyConverter: React.FC = () => {
                 </Select>
               </Td>
               <Td>{result}</Td>
-            </tr>
+            </Tr>
           </tbody>
         </Table>
       </TableWrapper>
