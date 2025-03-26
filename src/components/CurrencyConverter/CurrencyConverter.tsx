@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { 
-  ConverterContainer, 
+import {
+  ConverterContainer,
   ConverterHeader,
   ConverterTitle,
   ConverterContent,
@@ -8,14 +8,14 @@ import {
   InputGroup,
   Label,
   InputWrapper,
-  Input, 
+  Input,
   Select,
   ResultContainer,
   ResultValue,
   ExchangeRate,
   LoadingContainer,
   LoadingSpinner,
-  ErrorContainer
+  ErrorContainer,
 } from "./styles";
 import { useExchangeRates } from "../../hooks/useExchangeRates";
 
@@ -30,13 +30,13 @@ const CurrencyConverter: React.FC = () => {
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     // Remove leading zeros and limit to 22 digits
-    const cleanedValue = value.replace(/^0+(?=\d)/, '').slice(0, 22);
+    const cleanedValue = value.replace(/^0+(?=\d)/, "").slice(0, 22);
     setAmount(cleanedValue);
   };
 
   useEffect(() => {
     if (amount && !isNaN(Number(amount)) && rates) {
-      const currentRate = rates.find(rate => rate.code === currency);
+      const currentRate = rates.find((rate) => rate.code === currency);
       if (currentRate) {
         const converted = (Number(amount) / currentRate.rate).toFixed(2);
         setResult(converted);
@@ -48,6 +48,7 @@ const CurrencyConverter: React.FC = () => {
     }
   }, [amount, currency, rates]);
 
+  // In your CurrencyConverter.tsx, find the loading state render
   if (isLoading) {
     return (
       <ConverterContainer>
@@ -55,7 +56,7 @@ const CurrencyConverter: React.FC = () => {
           <ConverterTitle>Currency Converter</ConverterTitle>
         </ConverterHeader>
         <ConverterContent>
-          <LoadingContainer>
+          <LoadingContainer data-testid="loading-spinner">
             <LoadingSpinner />
           </LoadingContainer>
         </ConverterContent>
@@ -70,9 +71,7 @@ const CurrencyConverter: React.FC = () => {
           <ConverterTitle>Currency Converter</ConverterTitle>
         </ConverterHeader>
         <ConverterContent>
-          <ErrorContainer>
-            Error loading exchange rates
-          </ErrorContainer>
+          <ErrorContainer>Error loading exchange rates</ErrorContainer>
         </ConverterContent>
       </ConverterContainer>
     );
@@ -88,12 +87,12 @@ const CurrencyConverter: React.FC = () => {
           <InputGroup>
             <Label htmlFor="amount">Amount in CZK</Label>
             <InputWrapper>
-              <Input 
+              <Input
                 id="amount"
-                type="number" 
-                value={amount} 
-                onChange={handleAmountChange} 
-                placeholder="Enter amount" 
+                type="number"
+                value={amount}
+                onChange={handleAmountChange}
+                placeholder="Enter amount"
                 aria-label="Amount in CZK"
                 maxLength={22}
               />
@@ -103,12 +102,11 @@ const CurrencyConverter: React.FC = () => {
           <InputGroup>
             <Label htmlFor="currency">Convert to</Label>
             <InputWrapper>
-              <Select 
+              <Select
                 id="currency"
-                value={currency} 
+                value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
-                aria-label="Select currency"
-              >
+                aria-label="Select currency">
                 {rates?.map((rate) => (
                   <option key={rate.code} value={rate.code}>
                     {rate.code}
@@ -120,9 +118,11 @@ const CurrencyConverter: React.FC = () => {
 
           {result && (
             <ResultContainer>
-              <ResultValue>{result} {currency}</ResultValue>
+              <ResultValue data-testid="result-value">
+                {result} {currency}
+              </ResultValue>
               {rate && (
-                <ExchangeRate>
+                <ExchangeRate data-testid="exchange-rate">
                   1 CZK = {(1 / rate).toFixed(4)} {currency}
                 </ExchangeRate>
               )}
