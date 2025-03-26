@@ -1,4 +1,3 @@
-// src/App.tsx
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GlobalStyles } from './styles/GlobalStyles';

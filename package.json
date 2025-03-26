@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.69.0",
+    "country-flag-icons": "^1.5.18",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-world-flags": "^1.6.0",
     "styled-components": "^6.1.16"
   },
   "devDependencies": {

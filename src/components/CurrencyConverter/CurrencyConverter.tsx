@@ -1,13 +1,14 @@
+// src/components/CurrencyConverter/CurrencyConverter.tsx
 import React, { useState, useEffect } from 'react';
 import {
-    TableContainer,
-    TableTitle,
-    TableWrapper,
-    Table,
-    Th,
-    Td,
-  } from '../../styles/common/TableStyles';
-  import { Input, Select } from './styles';
+  TableContainer,
+  TableTitle,
+  TableWrapper,
+  Table,
+  Th,
+  Td,
+} from '../../styles/common/TableStyles';
+import { Input, Select } from './styles';
 
 const rates = {
   EUR: 24.85,
@@ -54,7 +55,7 @@ const CurrencyConverter: React.FC = () => {
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  placeholder="0.00"
+                  placeholder="0"
                 />
               </Td>
               <Td>

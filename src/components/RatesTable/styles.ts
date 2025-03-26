@@ -1,52 +1,32 @@
-import styled from "styled-components";
+// src/components/RatesTable/styles.ts
+import styled from 'styled-components';
 
-export const TableContainer = styled.div`
-  max-width: 800px;
-  margin: 4rem auto;
-`;
+export const CurrencyCell = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 
-export const TableTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 500;
-`;
-
-export const TableWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  box-shadow: ${({ theme }) => theme.shadows.medium};
-  overflow: hidden;
-`;
-
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; // Added for consistent column widths
-`;
-
-export const Th = styled.th`
-  padding: 1.2rem;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  font-weight: 500;
-  width: 33.33%; // Equal width for all columns
-  text-align: center; // Center align all headers
-`;
-
-export const Td = styled.td`
-  padding: 1.2rem;
-  color: ${({ theme }) => theme.colors.text};
-  text-align: center; // Center align all data
-`;
-
-export const Tr = styled.tr`
-  &:nth-child(even) {
-    background-color: ${({ theme }) => theme.colors.background};
+  span {
+    font-weight: 500;
   }
+`;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.background};
+export const FlagWrapper = styled.div`
+  width: 32px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg, img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
+`;
+
+export const CustomFlag = styled.img`
+  width: 32px;
+  height: 24px;
+  object-fit: contain;
 `;
