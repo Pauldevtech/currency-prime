@@ -1,87 +1,80 @@
-// CurrencyConverter/styles.ts
+// styles.ts
 import styled from 'styled-components';
+import { devices } from '../../styles/breakpoints';
 
-export const TableContainer = styled.div`
-  max-width: 600px;
-  margin: 4rem auto;
-`;
+export const ConverterContainer = styled.div`
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 
-export const TableTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 500;
-`;
-
-export const TableWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  box-shadow: ${({ theme }) => theme.shadows.medium};
-  overflow: auto;
-`;
-
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-`;
-
-export const Thead = styled.thead`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-`;
-
-export const Tr = styled.tr`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.background};
-  
-  &:last-child {
-    border-bottom: none;
+  ${devices.tablet} {
+    padding: 0;
   }
 `;
 
-export const Th = styled.th`
-  text-align: left;
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 1.2rem 2.7rem;
-  white-space: nowrap;
+export const ConverterTitle = styled.h2`
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
 
-  &:nth-child(1) { width: 35%; }
-  &:nth-child(2) { width: 35%; }
-  &:nth-child(3) { width: 30%; }
+  ${devices.tablet} {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
 `;
 
-export const Td = styled.td`
-  padding: 1.2rem 2.7rem;
-  font-size: 1.1rem;
-  vertical-align: middle;
-  white-space: nowrap;
-  overflow-x: auto;
+export const ConverterCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  box-shadow: ${({ theme }) => theme.shadows.medium};
+  padding: 1.5rem;
+
+  ${devices.tablet} {
+    padding: 2rem;
+  }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const Label = styled.label`
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.text};
+  
+  ${devices.tablet} {
+    font-size: 1rem;
+  }
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  width: fit-content;
+  width: 100%;
 `;
 
 export const Input = styled.input`
-  padding: 0.5rem 0;
-  border: none;
-  font-size: 1.1rem;
-  width: 120px;
-  text-align: center;
-  overflow-x: auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  font-size: 1rem;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.background};
 
   &:focus {
     outline: none;
-    &::placeholder {
-      opacity: 0;
-    }
+    border-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   &::-webkit-inner-spin-button,
@@ -92,19 +85,40 @@ export const Input = styled.input`
 `;
 
 export const Select = styled.select`
-  padding: 0.5rem 0;
-  border: none;
-  font-size: 1.1rem;
-  width: 80px;
-  text-align: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  font-size: 1rem;
+  width: 100%;
   cursor: pointer;
-  appearance: none;
-  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0 top 50%;
-  background-size: 0.65em auto;
+  background-color: ${({ theme }) => theme.colors.background};
 
   &:focus {
     outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.white};
   }
+`;
+
+export const ResultContainer = styled.div`
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const ResultValue = styled.div`
+  font-size: 2rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.text};
+  text-align: center;
+`;
+
+export const ExchangeRate = styled.div`
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.text}99;
+  text-align: center;
 `;

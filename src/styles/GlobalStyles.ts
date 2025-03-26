@@ -1,16 +1,35 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fonts.main};
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
   }
 
-  *, *::before, *::after {
-    box-sizing: inherit;
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+    background-color: ${({ theme }) => theme.colors.background};
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
   }
 `;

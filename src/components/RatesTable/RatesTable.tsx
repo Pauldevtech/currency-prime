@@ -1,4 +1,3 @@
-// src/components/RatesTable/RatesTable.tsx
 import React from 'react';
 import * as Flags from 'country-flag-icons/react/3x2';
 import sdrLogo from '../../assets/sdr.png';
@@ -35,11 +34,19 @@ const RatesTable: React.FC = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <TableContainer>
+        <TableTitle>Loading exchange rates...</TableTitle>
+      </TableContainer>
+    );
   }
 
   if (error) {
-    return <div>Error loading rates</div>;
+    return (
+      <TableContainer>
+        <TableTitle>Error loading exchange rates</TableTitle>
+      </TableContainer>
+    );
   }
 
   return (
@@ -50,8 +57,8 @@ const RatesTable: React.FC = () => {
           <Thead>
             <Tr>
               <Th>Code</Th>
-              <Th>Country</Th>
-              <Th>Name</Th>
+              <Th hideOnMobile>Country</Th>
+              <Th hideOnMobile>Name</Th>
               <Th>Unit</Th>
               <Th>Rate (CZK)</Th>
             </Tr>
@@ -67,8 +74,8 @@ const RatesTable: React.FC = () => {
                     <span>{rate.code}</span>
                   </CurrencyCell>
                 </Td>
-                <Td>{getCountryName(rate.code)}</Td>
-                <Td>{capitalizeFirstLetter(rate.currency)}</Td>
+                <Td hideOnMobile>{getCountryName(rate.code)}</Td>
+                <Td hideOnMobile>{capitalizeFirstLetter(rate.currency)}</Td>
                 <Td>{rate.amount}</Td>
                 <Td>{rate.rate.toFixed(2)}</Td>
               </Tr>

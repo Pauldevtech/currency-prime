@@ -22,19 +22,19 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Header />
-          <Hero>
-            <HeroContent>
-              <h1>Exchange Currencies with Ease</h1>
-              <p>Discover real-time exchange rates and convert currencies effortlessly.</p>
-            </HeroContent>
-          </Hero>
-          <MainContent>
-            <CurrencyConverter />
-            <RatesTable />
-          </MainContent>
-          <Footer>
-            <p>© 2024 Currency Prime | All rights reserved</p>
-          </Footer>
+        <Hero>
+          <HeroContent>
+            <h1>Exchange Currencies with Ease</h1>
+            <p>Discover real-time exchange rates and convert currencies effortlessly.</p>
+          </HeroContent>
+        </Hero>
+        <MainContent>
+          <CurrencyConverter />
+          <RatesTable />
+        </MainContent>
+        <Footer>
+          <p>© 2024 Currency Prime | All rights reserved</p>
+        </Footer>
       </ThemeProvider>
     </QueryClientProvider>
   );

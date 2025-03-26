@@ -20,4 +20,9 @@ export const theme = {
       medium: '8px',
       large: '16px',
     },
+    layout: {
+      headerHeightMobile: '80px',
+      headerHeightDesktop: '70px'
+    }
+  
   };

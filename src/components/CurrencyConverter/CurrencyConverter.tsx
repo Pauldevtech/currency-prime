@@ -1,17 +1,17 @@
-// src/components/CurrencyConverter/CurrencyConverter.tsx
+// CurrencyConverter.tsx
 import React, { useState, useEffect } from "react";
 import { 
-  TableContainer, 
-  TableTitle, 
-  TableWrapper, 
-  Table, 
-  Th, 
-  Td, 
+  ConverterContainer, 
+  ConverterTitle,
+  ConverterCard,
+  InputGroup,
+  Label,
+  InputWrapper,
   Input, 
-  Select, 
-  Tr, 
-  Thead,
-  InputWrapper 
+  Select,
+  ResultContainer,
+  ResultValue,
+  ExchangeRate
 } from "./styles";
 import { useExchangeRates } from "../../hooks/useExchangeRates";
 
@@ -19,6 +19,7 @@ const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState<string>("");
   const [currency, setCurrency] = useState<string>("EUR");
   const [result, setResult] = useState<string>("");
+  const [rate, setRate] = useState<number | null>(null);
 
   const { data: rates, isLoading, error } = useExchangeRates();
 
@@ -33,65 +34,79 @@ const CurrencyConverter: React.FC = () => {
       const currentRate = rates.find(rate => rate.code === currency);
       if (currentRate) {
         const converted = (Number(amount) / currentRate.rate).toFixed(2);
-        setResult(`${converted} ${currency}`);
+        setResult(converted);
+        setRate(currentRate.rate);
       }
     } else {
       setResult("");
+      setRate(null);
     }
   }, [amount, currency, rates]);
 
   if (isLoading) {
-    return <TableContainer>Loading exchange rates...</TableContainer>;
+    return (
+      <ConverterContainer>
+        <ConverterTitle>Loading exchange rates...</ConverterTitle>
+      </ConverterContainer>
+    );
   }
 
   if (error) {
-    return <TableContainer>Error loading exchange rates</TableContainer>;
+    return (
+      <ConverterContainer>
+        <ConverterTitle>Error loading exchange rates</ConverterTitle>
+      </ConverterContainer>
+    );
   }
 
   return (
-    <TableContainer>
-      <TableTitle>Currency Converter</TableTitle>
-      <TableWrapper>
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>Amount (CZK)</Th>
-              <Th>Convert to</Th>
-              <Th>Result</Th>
-            </Tr>
-          </Thead>
-          <tbody>
-            <Tr>
-              <Td>
-                <InputWrapper>
-                  <Input 
-                    type="number" 
-                    value={amount} 
-                    onChange={handleAmountChange} 
-                    placeholder="0" 
-                  />
-                </InputWrapper>
-              </Td>
-              <Td>
-                <InputWrapper>
-                  <Select 
-                    value={currency} 
-                    onChange={(e) => setCurrency(e.target.value)}
-                  >
-                    {rates?.map((rate) => (
-                      <option key={rate.code} value={rate.code}>
-                        {rate.code}
-                      </option>
-                    ))}
-                  </Select>
-                </InputWrapper>
-              </Td>
-              <Td>{result}</Td>
-            </Tr>
-          </tbody>
-        </Table>
-      </TableWrapper>
-    </TableContainer>
+    <ConverterContainer>
+      <ConverterTitle>Currency Converter</ConverterTitle>
+      <ConverterCard>
+        <InputGroup>
+          <Label htmlFor="amount">Amount in CZK</Label>
+          <InputWrapper>
+            <Input 
+              id="amount"
+              type="number" 
+              value={amount} 
+              onChange={handleAmountChange} 
+              placeholder="Enter amount" 
+              aria-label="Amount in CZK"
+            />
+          </InputWrapper>
+        </InputGroup>
+
+        <InputGroup>
+          <Label htmlFor="currency">Convert to</Label>
+          <InputWrapper>
+            <Select 
+              id="currency"
+              value={currency} 
+              onChange={(e) => setCurrency(e.target.value)}
+              aria-label="Select currency"
+            >
+              {rates?.map((rate) => (
+                <option key={rate.code} value={rate.code}>
+                  {rate.code}
+                </option>
+              ))}
+            </Select>
+          </InputWrapper>
+        </InputGroup>
+
+        {result && (
+          <ResultContainer>
+            <ResultValue>{result} {currency}</ResultValue>
+            {rate && (
+              <ExchangeRate>
+                1 CZK = {(1 / rate).toFixed(4)} {currency}
+              </ExchangeRate>
+            )}
+          </ResultContainer>
+        )}
+      </ConverterCard>
+    </ConverterContainer>
   );
 };
 
