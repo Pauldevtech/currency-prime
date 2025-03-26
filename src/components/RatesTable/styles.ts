@@ -68,6 +68,7 @@ export const TableContent = styled.div`
 
   ${devices.tablet} {
     padding: 0.8rem 0.5rem 1rem 0.5rem;
+    text-align: center;
   }
 `;
 
@@ -107,11 +108,10 @@ export const Table = styled.table`
 export const Thead = styled.thead`
   background: ${({ theme }) => `${theme.colors.background}30`};
   border-bottom: 2px solid ${({ theme }) => `${theme.colors.background}50`};
-  
 `;
 
 export const Th = styled.th<{ $hideOnMobile?: boolean }>`
-  text-align: left;
+  text-align: center
   padding: 0.8rem 1rem;
   font-size: 0.85rem;
   font-weight: bold;
