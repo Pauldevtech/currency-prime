@@ -1,3 +1,4 @@
+// src/components/RatesTable/RatesTable.tsx
 import React from 'react';
 import * as Flags from 'country-flag-icons/react/3x2';
 import sdrLogo from '../../assets/sdr.png';
@@ -45,7 +46,7 @@ const RatesTable: React.FC = () => {
           <TableTitle>Exchange Rates</TableTitle>
         </TableHeader>
         <TableContent>
-          <LoadingContainer>
+          <LoadingContainer role="status" aria-label="Loading exchange rates">
             <LoadingSpinner />
           </LoadingContainer>
         </TableContent>
