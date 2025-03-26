@@ -9,8 +9,7 @@ const Header: React.FC = () => {
         <Logo />
         <NavLinks>
           <NavLink href="#home">Home</NavLink>
-          <NavLink href="#converter">Converter</NavLink>
-          <NavLink href="#rates">Rates</NavLink>
+          <NavLink href="#rates">Converter/Rates</NavLink>
         </NavLinks>
       </HeaderContent>
     </HeaderWrapper>

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { devices } from '../../styles/breakpoints';
+import styled from "styled-components";
+import { devices } from "../../styles/breakpoints";
 
 export const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.primary};
@@ -54,7 +54,7 @@ export const NavLink = styled.a`
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -67,9 +67,5 @@ export const NavLink = styled.a`
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
-    
-    &::after {
-      width: 80%;
-    }
   }
 `;

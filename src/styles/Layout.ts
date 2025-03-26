@@ -19,7 +19,6 @@ export const Hero = styled.section`
   }
 `;
 
-
 export const HeroContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -44,14 +43,19 @@ export const HeroContent = styled.div`
     }
   }
 `;
+
 export const MainContent = styled.main`
   max-width: 1200px;
-  margin: 1rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  // padding: 0 2rem;
   min-height: calc(100vh - 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 
   ${devices.tablet} {
-    margin: 2rem auto;
+    flex-direction: row;
+    align-items: flex-start;
     padding: 0 2rem;
   }
 `;
@@ -62,6 +66,7 @@ export const Footer = styled.footer`
   padding: 1rem;
   text-align: center;
   font-size: 0.9rem;
+  font-weight: 500;
 
   ${devices.tablet} {
     padding: 1.5rem;

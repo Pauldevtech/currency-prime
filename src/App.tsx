@@ -33,7 +33,7 @@ const App = () => {
           <RatesTable />
         </MainContent>
         <Footer>
-          <p>© 2024 Currency Prime | All rights reserved</p>
+          <p>Currency Prime | Exchange Rate 2005</p>
         </Footer>
       </ThemeProvider>
     </QueryClientProvider>

@@ -3,7 +3,9 @@ import * as Flags from 'country-flag-icons/react/3x2';
 import sdrLogo from '../../assets/sdr.png';
 import {
   TableContainer,
+  TableHeader,
   TableTitle,
+  TableContent,
   TableWrapper,
   Table,
   Thead,
@@ -13,6 +15,9 @@ import {
   CurrencyCell,
   FlagWrapper,
   CustomFlag,
+  LoadingContainer,
+  LoadingSpinner,
+  ErrorContainer
 } from './styles';
 import { useExchangeRates } from '../../hooks/useExchangeRates';
 import { currencyToCode, getCountryName } from '../../utils/countryMapping';
@@ -36,7 +41,14 @@ const RatesTable: React.FC = () => {
   if (isLoading) {
     return (
       <TableContainer>
-        <TableTitle>Loading exchange rates...</TableTitle>
+        <TableHeader>
+          <TableTitle>Exchange Rates</TableTitle>
+        </TableHeader>
+        <TableContent>
+          <LoadingContainer>
+            <LoadingSpinner />
+          </LoadingContainer>
+        </TableContent>
       </TableContainer>
     );
   }
@@ -44,45 +56,56 @@ const RatesTable: React.FC = () => {
   if (error) {
     return (
       <TableContainer>
-        <TableTitle>Error loading exchange rates</TableTitle>
+        <TableHeader>
+          <TableTitle>Exchange Rates</TableTitle>
+        </TableHeader>
+        <TableContent>
+          <ErrorContainer>
+            Error loading exchange rates
+          </ErrorContainer>
+        </TableContent>
       </TableContainer>
     );
   }
 
   return (
     <TableContainer>
-      <TableTitle>Exchange Rates</TableTitle>
-      <TableWrapper>
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>Code</Th>
-              <Th hideOnMobile>Country</Th>
-              <Th hideOnMobile>Name</Th>
-              <Th>Unit</Th>
-              <Th>Rate (CZK)</Th>
-            </Tr>
-          </Thead>
-          <tbody>
-            {rates?.map((rate) => (
-              <Tr key={rate.code}>
-                <Td>
-                  <CurrencyCell>
-                    <FlagWrapper>
-                      {getFlagComponent(rate.code)}
-                    </FlagWrapper>
-                    <span>{rate.code}</span>
-                  </CurrencyCell>
-                </Td>
-                <Td hideOnMobile>{getCountryName(rate.code)}</Td>
-                <Td hideOnMobile>{capitalizeFirstLetter(rate.currency)}</Td>
-                <Td>{rate.amount}</Td>
-                <Td>{rate.rate.toFixed(2)}</Td>
+      <TableHeader>
+        <TableTitle>Exchange Rates</TableTitle>
+      </TableHeader>
+      <TableContent>
+        <TableWrapper>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Currency</Th>
+                <Th $hideOnMobile>Country</Th>
+                <Th $hideOnMobile>Name</Th>
+                <Th>Unit</Th>
+                <Th>Rate (CZK)</Th>
               </Tr>
-            ))}
-          </tbody>
-        </Table>
-      </TableWrapper>
+            </Thead>
+            <tbody>
+              {rates?.map((rate) => (
+                <Tr key={rate.code}>
+                  <Td>
+                    <CurrencyCell>
+                      <FlagWrapper>
+                        {getFlagComponent(rate.code)}
+                      </FlagWrapper>
+                      <span>{rate.code}</span>
+                    </CurrencyCell>
+                  </Td>
+                  <Td $hideOnMobile>{getCountryName(rate.code)}</Td>
+                  <Td $hideOnMobile>{capitalizeFirstLetter(rate.currency)}</Td>
+                  <Td>{rate.amount}</Td>
+                  <Td>{rate.rate.toFixed(2)}</Td>
+                </Tr>
+              ))}
+            </tbody>
+          </Table>
+        </TableWrapper>
+      </TableContent>
     </TableContainer>
   );
 };
