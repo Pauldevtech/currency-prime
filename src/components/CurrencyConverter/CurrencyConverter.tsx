@@ -1,5 +1,18 @@
+// CurrencyConverter.tsx
 import React, { useState, useEffect } from "react";
-import { TableContainer, TableTitle, TableWrapper, Table, Th, Td, Input, Select, Tr, Thead } from "./styles";
+import { 
+  TableContainer, 
+  TableTitle, 
+  TableWrapper, 
+  Table, 
+  Th, 
+  Td, 
+  Input, 
+  Select, 
+  Tr, 
+  Thead,
+  InputWrapper 
+} from "./styles";
 
 const rates = {
   EUR: 24.85,
@@ -16,6 +29,13 @@ const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState<string>("");
   const [currency, setCurrency] = useState<string>("EUR");
   const [result, setResult] = useState<string>("");
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Remove leading zeros and update only if the value is valid
+    const cleanedValue = value.replace(/^0+(?=\d)/, '');
+    setAmount(cleanedValue);
+  };
 
   useEffect(() => {
     if (amount && !isNaN(Number(amount))) {
@@ -42,24 +62,28 @@ const CurrencyConverter: React.FC = () => {
           <tbody>
             <Tr>
               <Td>
-                <Input 
-                  type="number" 
-                  value={amount} 
-                  onChange={(e) => setAmount(e.target.value)} 
-                  placeholder="0" 
-                />
+                <InputWrapper>
+                  <Input 
+                    type="number" 
+                    value={amount} 
+                    onChange={handleAmountChange} 
+                    placeholder="0" 
+                  />
+                </InputWrapper>
               </Td>
               <Td>
-                <Select 
-                  value={currency} 
-                  onChange={(e) => setCurrency(e.target.value)}
-                >
-                  {Object.keys(rates).map((curr) => (
-                    <option key={curr} value={curr}>
-                      {curr}
-                    </option>
-                  ))}
-                </Select>
+                <InputWrapper>
+                  <Select 
+                    value={currency} 
+                    onChange={(e) => setCurrency(e.target.value)}
+                  >
+                    {Object.keys(rates).map((curr) => (
+                      <option key={curr} value={curr}>
+                        {curr}
+                      </option>
+                    ))}
+                  </Select>
+                </InputWrapper>
               </Td>
               <Td>{result}</Td>
             </Tr>

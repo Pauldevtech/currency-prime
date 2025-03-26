@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TableContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1130px;
   margin: 4rem auto;
 `;
 
@@ -38,10 +38,8 @@ export const Tr = styled.tr`
     border-bottom: none;
   }
 
-  tbody & {
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.background};
-    }
+  &:nth-child(even) {
+    background-color: ${({ theme }) => theme.colors.primary}10;
   }
 `;
 
