@@ -28,7 +28,7 @@ const App = () => {
             <p>Discover real-time exchange rates and convert currencies effortlessly.</p>
           </HeroContent>
         </Hero>
-        <MainContent>
+        <MainContent id="converter-rates">
           <CurrencyConverter />
           <RatesTable />
         </MainContent>
