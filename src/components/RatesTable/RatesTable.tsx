@@ -1,5 +1,5 @@
+// src/components/RatesTable/RatesTable.tsx
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import * as Flags from 'country-flag-icons/react/3x2';
 import sdrLogo from '../../assets/sdr.png';
 import {
@@ -15,7 +15,7 @@ import {
   FlagWrapper,
   CustomFlag,
 } from './styles';
-import { fetchExchangeRates, ExchangeRate } from '../../services/api';
+import { useExchangeRates } from '../../hooks/useExchangeRates';
 import { currencyToCode, getCountryName } from '../../utils/countryMapping';
 
 const capitalizeFirstLetter = (string: string) => {
@@ -23,10 +23,7 @@ const capitalizeFirstLetter = (string: string) => {
 };
 
 const RatesTable: React.FC = () => {
-  const { data: rates, isLoading, error } = useQuery<ExchangeRate[]>({
-    queryKey: ['exchangeRates'],
-    queryFn: fetchExchangeRates,
-  });
+  const { data: rates, isLoading, error } = useExchangeRates();
 
   const getFlagComponent = (currencyCode: string) => {
     if (currencyCode === 'XDR') {

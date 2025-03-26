@@ -59,8 +59,7 @@ export const Td = styled.td`
   font-size: 1.1rem;
   vertical-align: middle;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-x: auto;
 `;
 
 export const InputWrapper = styled.div`
@@ -76,6 +75,7 @@ export const Input = styled.input`
   font-size: 1.1rem;
   width: 120px;
   text-align: center;
+  overflow-x: auto;
 
   &:focus {
     outline: none;

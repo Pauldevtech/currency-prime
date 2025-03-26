@@ -1,4 +1,4 @@
-// CurrencyConverter.tsx
+// src/components/CurrencyConverter/CurrencyConverter.tsx
 import React, { useState, useEffect } from "react";
 import { 
   TableContainer, 
@@ -13,39 +13,40 @@ import {
   Thead,
   InputWrapper 
 } from "./styles";
-
-const rates = {
-  EUR: 24.85,
-  USD: 22.86,
-  GBP: 28.93,
-  JPY: 0.1531,
-  CHF: 25.97,
-  AUD: 14.92,
-  CAD: 16.89,
-  PLN: 5.73,
-};
+import { useExchangeRates } from "../../hooks/useExchangeRates";
 
 const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState<string>("");
   const [currency, setCurrency] = useState<string>("EUR");
   const [result, setResult] = useState<string>("");
 
+  const { data: rates, isLoading, error } = useExchangeRates();
+
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Remove leading zeros and update only if the value is valid
     const cleanedValue = value.replace(/^0+(?=\d)/, '');
     setAmount(cleanedValue);
   };
 
   useEffect(() => {
-    if (amount && !isNaN(Number(amount))) {
-      const rate = rates[currency as keyof typeof rates];
-      const converted = (Number(amount) / rate).toFixed(2);
-      setResult(`${converted} ${currency}`);
+    if (amount && !isNaN(Number(amount)) && rates) {
+      const currentRate = rates.find(rate => rate.code === currency);
+      if (currentRate) {
+        const converted = (Number(amount) / currentRate.rate).toFixed(2);
+        setResult(`${converted} ${currency}`);
+      }
     } else {
-      setResult("—");
+      setResult("");
     }
-  }, [amount, currency]);
+  }, [amount, currency, rates]);
+
+  if (isLoading) {
+    return <TableContainer>Loading exchange rates...</TableContainer>;
+  }
+
+  if (error) {
+    return <TableContainer>Error loading exchange rates</TableContainer>;
+  }
 
   return (
     <TableContainer>
@@ -77,9 +78,9 @@ const CurrencyConverter: React.FC = () => {
                     value={currency} 
                     onChange={(e) => setCurrency(e.target.value)}
                   >
-                    {Object.keys(rates).map((curr) => (
-                      <option key={curr} value={curr}>
-                        {curr}
+                    {rates?.map((rate) => (
+                      <option key={rate.code} value={rate.code}>
+                        {rate.code}
                       </option>
                     ))}
                   </Select>
