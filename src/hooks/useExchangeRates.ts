@@ -5,6 +5,6 @@ export const useExchangeRates = () => {
   return useQuery<ExchangeRate[], Error>({
     queryKey: ['exchangeRates'],
     queryFn: fetchExchangeRates,
-    refetchInterval: 60000, // Refetch every minute
+    refetchInterval: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
   });
 };
