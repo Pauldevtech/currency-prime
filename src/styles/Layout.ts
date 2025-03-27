@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { devices } from './breakpoints';
+import styled from "styled-components";
+import { devices } from "./breakpoints";
 
 export const Hero = styled.section`
   height: auto;
@@ -7,14 +7,12 @@ export const Hero = styled.section`
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: ${({ theme }) => theme.colors.text};
+  padding: 2rem 1rem 0rem 1rem;
+  background-color: ${({ theme }) => theme.colors.white};
   margin-top: ${({ theme }) => theme.layout.headerHeightMobile}; // This ensures the hero starts after the header
   position: relative;
 
   ${devices.tablet} {
-    min-height: 30vh;
-    padding: 3rem 2rem;
     margin-top: ${({ theme }) => theme.layout.headerHeightDesktop};
   }
 `;
@@ -26,7 +24,7 @@ export const HeroContent = styled.div`
 
   h1 {
     font-size: 2rem;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
     margin-bottom: 1rem;
 
     ${devices.tablet} {
@@ -36,7 +34,7 @@ export const HeroContent = styled.div`
 
   p {
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
 
     ${devices.tablet} {
       font-size: 1.2rem;
@@ -56,28 +54,14 @@ export const MainContent = styled.main`
     flex-direction: row;
     align-items: flex-start;
     padding: 0 2rem;
-    
+
     // Add this to make RatesTable wider
     & > *:first-child {
       flex: 2; // Takes up 2 parts of the space
     }
-    
+
     & > *:last-child {
       flex: 1; // Takes up 1 part of the space
     }
-  }
-`;
-
-export const Footer = styled.footer`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 500;
-
-  ${devices.tablet} {
-    padding: 1.5rem;
-    font-size: 1rem;
   }
 `;

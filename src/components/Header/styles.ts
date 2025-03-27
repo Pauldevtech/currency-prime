@@ -45,7 +45,7 @@ export const NavLinks = styled.nav`
 `;
 
 export const NavLink = styled.a`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;

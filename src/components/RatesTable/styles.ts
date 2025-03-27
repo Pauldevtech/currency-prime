@@ -34,7 +34,7 @@ export const TableHeader = styled.div`
   position: relative;
 
   ${devices.tablet} {
-    padding: 0.8rem 1.2rem;
+    padding: 0.5rem 1.2rem;
     text-align: center;
   }
 `;
@@ -56,11 +56,10 @@ export const TableTitle = styled.h2`
     content: "";
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
+    top: 9px;
+    bottom: 9px;
+    width: 3.5px;
     background: ${({ theme }) => theme.colors.accent};
-    border-radius: 2px;
   }
 
   &:hover span::after {
@@ -79,7 +78,6 @@ export const TableContent = styled.div`
 
 export const TableWrapper = styled.div`
   background: ${({ theme }) => theme.colors.white};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -118,12 +116,12 @@ export const Thead = styled.thead`
 export const Th = styled.th<{ $hideOnMobile?: boolean }>`
   text-align: center
   padding: 0.8rem 1rem;
-  font-size: 0.85rem;
-  font-weight: bold;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: ${({ theme }) => theme.colors.primaryLight};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: 768px) {
     display: ${({ $hideOnMobile }) => ($hideOnMobile ? "none" : "table-cell")};
@@ -161,7 +159,7 @@ export const Tr = styled.tr`
   }
 
   &:nth-child(even) {
-    background: ${({ theme }) => `${theme.colors.primary}10`};
+    background: ${({ theme }) => theme.colors.background}; // Changed from primary10 to primaryLight
   }
 `;
 

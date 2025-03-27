@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         </div>
         <NavLinks>
           <NavLink onClick={scrollToTop} href="#home">Home</NavLink>
-          <NavLink onClick={scrollToMain} href="#converter-rates">Converter/Rates</NavLink>
+          <NavLink onClick={scrollToMain} href="#converter-rates">Rates/Converter</NavLink>
         </NavLinks>
       </HeaderContent>
     </HeaderWrapper>

@@ -1,11 +1,12 @@
-import { ThemeProvider } from 'styled-components';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { GlobalStyles } from './styles/GlobalStyles';
-import { theme } from './styles/theme';
-import Header from './components/Header/Header';
-import { Hero, HeroContent, MainContent, Footer } from './styles/Layout';
-import RatesTable from './components/RatesTable/RatesTable';
-import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter';
+import { ThemeProvider } from "styled-components";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
+import Header from "./components/Header/Header";
+import { Hero, HeroContent, MainContent } from "./styles/Layout";
+import RatesTable from "./components/RatesTable/RatesTable";
+import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,17 +25,15 @@ const App = () => {
         <Header />
         <Hero>
           <HeroContent>
-            <h1>Exchange Currencies with Ease</h1>
-            <p>Discover real-time exchange rates and convert currencies effortlessly.</p>
+            <h1>Currency Exchange Made Simple</h1>
+            <p>Get real-time exchange rates and convert currencies with ease using Currency Prime's powerful tools.</p>
           </HeroContent>
         </Hero>
         <MainContent id="converter-rates">
           <RatesTable />
           <CurrencyConverter />
         </MainContent>
-        <Footer>
-          <p>Currency Prime | Exchange Rate 2005</p>
-        </Footer>
+        <Footer />
       </ThemeProvider>
     </QueryClientProvider>
   );
