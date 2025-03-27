@@ -1,10 +1,16 @@
+// src/components/Footer.tsx
 import styled from 'styled-components';
 import Logo from './Logo/Logo';
+import { devices } from '../styles/breakpoints';
 
 const FooterWrapper = styled.footer`
-  background-color: ${({ theme }) => theme.colors.primaryLight};
-  border-top: 1px solid ${({ theme }) => theme.colors.primary};
-  padding: 2rem 0;
+  background-color: ${({ theme }) => theme.colors.background};
+  border-top: 1px solid ${({ theme }) => theme.colors.primaryLight};
+  padding: 1rem 0;
+
+  ${devices.tablet} {
+    padding: 2rem 0;
+  }
 `;
 
 const FooterContainer = styled.div`
@@ -12,17 +18,28 @@ const FooterContainer = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 0;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  ${devices.tablet} {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
   }
 `;
 
-const FooterSection = styled.div``;
+// src/components/Footer.tsx
+const FooterSection = styled.div<{ $isLogo?: boolean }>`
+  display: ${({ $isLogo }) => ($isLogo ? 'flex' : 'none')};
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
+  ${devices.tablet} {
+    display: block;
+    text-align: left;
+    align-items: flex-start;
+  }
+`;
 const SectionTitle = styled.h3`
   font-size: 0.875rem;
   font-weight: 700;
@@ -35,10 +52,15 @@ const SectionTitle = styled.h3`
 
 const FooterText = styled.p`
   color: ${({ theme }) => theme.colors.text};
-  font-size: 0.875rem;
-  margin: 0.5rem 0;
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
   line-height: 1.6;
   font-family: ${({ theme }) => theme.fonts.body};
+
+  ${devices.tablet} {
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 const FooterLink = styled.a`
@@ -59,7 +81,7 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <FooterContainer>
-        <FooterSection>
+        <FooterSection $isLogo>
           <Logo variant="footer" />
           <FooterText>
             Real-time currency conversion and exchange rates for over 170 currencies worldwide.

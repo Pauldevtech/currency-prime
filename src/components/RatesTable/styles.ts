@@ -25,13 +25,17 @@ export const TableCard = styled.div`
 `;
 
 export const TableHeader = styled.div`
-  padding: 2rem 1.2rem 1rem 1rem;
+  padding: 0.3rem 0.8rem;
   background: ${({ theme }) => `${theme.colors.accent}10`};
   border-bottom: 1px solid ${({ theme }) => `${theme.colors.background}50`};
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    margin-top: 3rem;
+  }
 
   ${devices.tablet} {
     padding: 0.5rem 1.2rem;

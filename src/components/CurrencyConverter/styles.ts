@@ -17,7 +17,7 @@ export const ConverterContainer = styled.div`
 `;
 
 export const ConverterHeader = styled.div`
-  padding: 0.8rem 1.2rem;
+  padding: 0.3rem 0.8rem;
   background: ${({ theme }) => `${theme.colors.accent}10`};
 
   border-bottom: 1px solid ${({ theme }) => `${theme.colors.background}50`};
@@ -96,9 +96,14 @@ export const Label = styled.label`
   letter-spacing: 0.05em;
   color: ${({ theme }) => theme.colors.black};
   background: ${({ theme }) => `${theme.colors.background}30`};
-  padding: 0.4rem 0.5rem 0rem 0.3rem;
+  padding: 0.4rem 0.5rem 0.5rem 1rem
   border-radius: ${({ theme }) => theme.borderRadius.small};
   width: fit-content;
+
+    ${devices.tablet} {
+    padding: 0.5rem 1.2rem;
+    text-align: center;
+  }
 `;
 
 export const InputWrapper = styled.div`
