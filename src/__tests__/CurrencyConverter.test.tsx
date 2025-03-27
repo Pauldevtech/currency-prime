@@ -30,14 +30,15 @@ describe('CurrencyConverter', () => {
       error: null,
       data: mockRates
     })
-
+  
     render(
       <ThemeProvider theme={theme}>
         <CurrencyConverter />
       </ThemeProvider>
     )
     
-    expect(screen.getByText('Converter')).toBeDefined()
+    // Change this line to match the other tests
+    expect(screen.getByText('Currency Converter')).toBeDefined()
     expect(screen.getByLabelText('Amount in CZK')).toBeDefined()
     expect(screen.getByLabelText('Convert to')).toBeDefined()
   })
