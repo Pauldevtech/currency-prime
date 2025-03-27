@@ -62,10 +62,6 @@ export const TableTitle = styled.h2`
     width: 3.5px;
     background: ${({ theme }) => theme.colors.accent};
   }
-
-  &:hover span::after {
-    transform: scaleX(1);
-  }
 `;
 
 export const TableContent = styled.div`
@@ -103,6 +99,7 @@ export const Table = styled.table`
   border-collapse: separate;
   border-spacing: 0;
   min-width: 600px;
+  text-align: center;
 
   @media (max-width: 768px) {
     min-width: unset;
@@ -115,7 +112,6 @@ export const Thead = styled.thead`
 `;
 
 export const Th = styled.th<{ $hideOnMobile?: boolean }>`
-  text-align: center
   padding: 0.8rem 1rem;
   font-size: 0.875rem;
   font-weight: 700;
@@ -123,22 +119,21 @@ export const Th = styled.th<{ $hideOnMobile?: boolean }>`
   letter-spacing: 0.05em;
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
+  text-align: center;
+  vertical-align: middle;
 
   @media (max-width: 768px) {
     display: ${({ $hideOnMobile }) => ($hideOnMobile ? "none" : "table-cell")};
     padding: 0.8rem 0.5rem;
-
+    
     &:first-child {
       width: 40%;
-      padding-right: 0;
     }
     &:nth-child(4) {
       width: 20%;
-      text-align: center;
     }
     &:last-child {
       width: 40%;
-      text-align: right;
       padding-right: 1rem;
     }
   }
@@ -160,7 +155,7 @@ export const Tr = styled.tr`
   }
 
   &:nth-child(even) {
-    background: ${({ theme }) => theme.colors.surfaceLight}; // Changed from primary10 to primaryLight
+    background: ${({ theme }) => theme.colors.surfaceLight};
   }
 `;
 
@@ -168,20 +163,14 @@ export const Td = styled.td<{ $hideOnMobile?: boolean }>`
   padding: 0.8rem 1rem;
   font-size: 0.95rem;
   color: ${({ theme }) => theme.colors.text};
+  text-align: center;
   vertical-align: middle;
 
   @media (max-width: 768px) {
     display: ${({ $hideOnMobile }) => ($hideOnMobile ? "none" : "table-cell")};
     padding: 0.8rem 0.5rem;
 
-    &:first-child {
-      padding-right: 0;
-    }
-    &:nth-child(4) {
-      text-align: center;
-    }
     &:last-child {
-      text-align: right;
       padding-right: 1rem;
     }
   }
@@ -192,9 +181,11 @@ export const Td = styled.td<{ $hideOnMobile?: boolean }>`
 `;
 
 export const CurrencyCell = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  width: 100%;
 
   span {
     font-weight: 500;
@@ -205,7 +196,8 @@ export const CurrencyCell = styled.div`
   }
 `;
 
-export const FlagWrapper = styled.div`
+export const FlagWrapper = styled.span`
+  display: inline-block;
   width: 24px;
   height: 18px;
   display: flex;
@@ -222,6 +214,7 @@ export const FlagWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    vertical-align: middle;
   }
 `;
 
@@ -229,6 +222,7 @@ export const CustomFlag = styled.img`
   width: 24px;
   height: 18px;
   object-fit: contain;
+  vertical-align: middle;
 
   ${devices.tablet} {
     width: 32px;
@@ -237,9 +231,8 @@ export const CustomFlag = styled.img`
 `;
 
 export const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  padding-top: 100px;
   min-height: 200px;
 `;
 
@@ -250,6 +243,7 @@ export const LoadingSpinner = styled.div`
   border-top: 3px solid ${({ theme }) => theme.colors.background};
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  margin: 0 auto;
 
   @keyframes spin {
     0% {
