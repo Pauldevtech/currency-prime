@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { devices } from "../../styles/breakpoints";
 
 export const TableContainer = styled.div`
-  max-width: 1130px;
-  padding: 0 1rem;
-
   @media (max-width: ${devices.tablet}) {
     max-width: 500px;
     margin: 1rem auto;

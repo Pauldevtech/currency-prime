@@ -18,6 +18,7 @@ export const ConverterContainer = styled.div`
 
 export const ConverterHeader = styled.div`
   padding: 0.3rem 0.8rem;
+  margin-top: 2rem;
   background: ${({ theme }) => `${theme.colors.accent}10`};
 
   border-bottom: 1px solid ${({ theme }) => `${theme.colors.background}50`};
@@ -28,6 +29,7 @@ export const ConverterHeader = styled.div`
 
   ${devices.tablet} {
     padding: 0.5rem 1.2rem;
+    margin-top: 0;
   }
 `;
 

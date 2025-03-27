@@ -2,10 +2,11 @@
 import styled from 'styled-components';
 import Logo from './Logo/Logo';
 import { devices } from '../styles/breakpoints';
+import { Container } from './Container/Container';
 
 const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.background};
-  border-top: 1px solid ${({ theme }) => theme.colors.primaryLight};
+  border-top: 1px solid ${({ theme }) => theme.colors.primary};
   padding: 1rem 0;
 
   ${devices.tablet} {
@@ -13,10 +14,7 @@ const FooterWrapper = styled.footer`
   }
 `;
 
-const FooterContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+const FooterContainer = styled(Container)`
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -27,7 +25,6 @@ const FooterContainer = styled.div`
   }
 `;
 
-// src/components/Footer.tsx
 const FooterSection = styled.div<{ $isLogo?: boolean }>`
   display: ${({ $isLogo }) => ($isLogo ? 'flex' : 'none')};
   flex-direction: column;
@@ -40,6 +37,7 @@ const FooterSection = styled.div<{ $isLogo?: boolean }>`
     align-items: flex-start;
   }
 `;
+
 const SectionTitle = styled.h3`
   font-size: 0.875rem;
   font-weight: 700;

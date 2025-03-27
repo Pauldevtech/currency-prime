@@ -1,5 +1,7 @@
+// src/styles/Layout.ts
 import styled from "styled-components";
 import { devices } from "./breakpoints";
+import { Container } from "../components/Container/Container";
 
 export const Hero = styled.section`
   height: auto;
@@ -7,20 +9,18 @@ export const Hero = styled.section`
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem 0rem 1rem;
   background-color: ${({ theme }) => theme.colors.white};
-  margin-top: ${({ theme }) => theme.layout.headerHeightMobile}; // This ensures the hero starts after the header
+  margin-top: ${({ theme }) => theme.layout.headerHeightMobile};
   position: relative;
+  padding: 2rem 0;
 
   ${devices.tablet} {
     margin-top: ${({ theme }) => theme.layout.headerHeightDesktop};
   }
 `;
 
-export const HeroContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
+export const HeroContent = styled(Container)`
+  text-align: center;
 
   h1 {
     font-size: 2rem;
@@ -42,26 +42,21 @@ export const HeroContent = styled.div`
   }
 `;
 
-export const MainContent = styled.main`
-  max-width: 1200px;
-  margin: 0 auto;
+export const MainContent = styled(Container)`
   min-height: calc(100vh - 400px);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 
   ${devices.tablet} {
     flex-direction: row;
     align-items: flex-start;
-    padding: 0 2rem;
 
-    // Add this to make RatesTable wider
     & > *:first-child {
-      flex: 2; // Takes up 2 parts of the space
+      flex: 2;
     }
 
     & > *:last-child {
-      flex: 1; // Takes up 1 part of the space
+      flex: 1;
     }
   }
 `;

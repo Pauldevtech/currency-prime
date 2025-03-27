@@ -1,5 +1,7 @@
+// src/components/Header/styles.ts
 import styled from "styled-components";
 import { devices } from "../../styles/breakpoints";
+import { Container } from "../Container/Container";
 
 export const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.primary};
@@ -16,24 +18,20 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled(Container)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; // Center logo on mobile
+  justify-content: center;
   height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 
   ${devices.tablet} {
-    padding: 0 2rem;
-    justify-content: space-between; // Space between logo and nav on tablet+
+    justify-content: space-between;
   }
 `;
 
 export const NavLinks = styled.nav`
-  display: none; // Hide on mobile
+  display: none;
 
   ${devices.tablet} {
     display: flex;
