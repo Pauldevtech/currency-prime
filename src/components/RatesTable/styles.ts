@@ -78,9 +78,7 @@ export const TableWrapper = styled.div`
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 8px 16px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02);
   margin: 0 -0.5rem;
 
   @media (max-width: 768px) {
@@ -88,8 +86,7 @@ export const TableWrapper = styled.div`
   }
 
   ${devices.tablet} {
-  
-  padding: 0.4rem 1rem 1rem 1.4rem
+    padding: 0rem 0.5rem;
     margin: 0 -1rem;
   }
 `;
@@ -125,7 +122,7 @@ export const Th = styled.th<{ $hideOnMobile?: boolean }>`
   @media (max-width: 768px) {
     display: ${({ $hideOnMobile }) => ($hideOnMobile ? "none" : "table-cell")};
     padding: 0.8rem 0.5rem;
-    
+
     &:first-child {
       width: 40%;
     }
@@ -189,6 +186,8 @@ export const CurrencyCell = styled.div`
 
   span {
     font-weight: 500;
+    min-width: 45px;
+    text-align: left;
   }
 
   ${devices.tablet} {
@@ -197,12 +196,14 @@ export const CurrencyCell = styled.div`
 `;
 
 export const FlagWrapper = styled.span`
-  display: inline-block;
-  width: 24px;
-  height: 18px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 30px;
+  flex-shrink: 0;
+  overflow: hidden;
 
   ${devices.tablet} {
     width: 32px;
@@ -214,7 +215,7 @@ export const FlagWrapper = styled.span`
     width: 100%;
     height: 100%;
     object-fit: contain;
-    vertical-align: middle;
+    display: block;
   }
 `;
 
@@ -222,7 +223,7 @@ export const CustomFlag = styled.img`
   width: 24px;
   height: 18px;
   object-fit: contain;
-  vertical-align: middle;
+  display: block;
 
   ${devices.tablet} {
     width: 32px;
