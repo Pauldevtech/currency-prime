@@ -40,6 +40,41 @@ export const CURRENCY_CODES = {
 
 export type CurrencyCode = keyof typeof CURRENCY_CODES;
 
+export const currencyToCode: Record<CurrencyCode, string> = {
+  AUD: 'AU',
+  BGN: 'BG',
+  BRL: 'BR',
+  CAD: 'CA',
+  CHF: 'CH',
+  CNY: 'CN',
+  DKK: 'DK',
+  EUR: 'EU',
+  GBP: 'GB',
+  HKD: 'HK',
+  HRK: 'HR',
+  HUF: 'HU',
+  IDR: 'ID',
+  ILS: 'IL',
+  INR: 'IN',
+  ISK: 'IS',
+  JPY: 'JP',
+  KRW: 'KR',
+  MXN: 'MX',
+  MYR: 'MY',
+  NOK: 'NO',
+  NZD: 'NZ',
+  PHP: 'PH',
+  PLN: 'PL',
+  RON: 'RO',
+  SEK: 'SE',
+  SGD: 'SG',
+  THB: 'TH',
+  TRY: 'TR',
+  USD: 'US',
+  XDR: 'XDR',
+  ZAR: 'ZA'
+};
+
 export const currencyMapping: Record<CurrencyCode, CountryInfo> = {
   AUD: { code: 'AU', name: 'Australia' },
   BGN: { code: 'BG', name: 'Bulgaria' },
@@ -84,11 +119,13 @@ export const getCountryCode = (currencyCode: CurrencyCode): string => {
   return currencyMapping[currencyCode].code;
 };
 
-export const getCountryName = (currencyCode: CurrencyCode): string => {
-  if (!currencyCode || !(currencyCode in currencyMapping)) {
-    throw new Error(`Invalid currency code: ${currencyCode}`);
+export const getCountryName = (currencyCode: string): string => {
+  if (!currencyCode) {
+    return '';
   }
-  return currencyMapping[currencyCode].name;
+  return currencyCode in currencyMapping 
+    ? currencyMapping[currencyCode as CurrencyCode].name 
+    : currencyCode;
 };
 
 export const isSupportedCurrency = (currencyCode: string): currencyCode is CurrencyCode => {

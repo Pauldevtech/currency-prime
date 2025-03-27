@@ -1,46 +1,46 @@
 import { describe, it, expect } from 'vitest'
-import { getCountryName, currencyToCode } from '../utils/countryMapping'
+import { getCountryName, currencyToCode, CurrencyCode } from '../utils/countryMapping'
 
 describe('countryMapping', () => {
   describe('getCountryName', () => {
     it('returns correct country name for USD', () => {
-      expect(getCountryName('USD')).toBe('United States')
+      expect(getCountryName('USD' as CurrencyCode)).toBe('United States')
     })
 
     it('returns correct country name for EUR', () => {
-      expect(getCountryName('EUR')).toBe('European Union')
+      expect(getCountryName('EUR' as CurrencyCode)).toBe('European Union')
     })
 
     it('returns currency code if country not found', () => {
-      expect(getCountryName('XXX')).toBe('XXX')
+      const unknownCurrency = 'XXX'
+      expect(getCountryName(unknownCurrency)).toBe('XXX')
     })
 
     it('returns correct names for major currencies', () => {
-      expect(getCountryName('GBP')).toBe('United Kingdom')
-      expect(getCountryName('JPY')).toBe('Japan')
-      expect(getCountryName('CHF')).toBe('Switzerland')
-      expect(getCountryName('AUD')).toBe('Australia')
-      expect(getCountryName('CAD')).toBe('Canada')
+      expect(getCountryName('GBP' as CurrencyCode)).toBe('United Kingdom')
+      expect(getCountryName('JPY' as CurrencyCode)).toBe('Japan')
+      expect(getCountryName('CHF' as CurrencyCode)).toBe('Switzerland')
+      expect(getCountryName('AUD' as CurrencyCode)).toBe('Australia')
+      expect(getCountryName('CAD' as CurrencyCode)).toBe('Canada')
     })
 
     it('handles special cases correctly', () => {
-      expect(getCountryName('XDR')).toBe('IMF')
-      expect(getCountryName('TRY')).toBe('Türkiye')
+      expect(getCountryName('XDR' as CurrencyCode)).toBe('IMF')
+      expect(getCountryName('TRY' as CurrencyCode)).toBe('Türkiye')
     })
 
-    // New tests
     it('handles empty string input', () => {
       expect(getCountryName('')).toBe('')
     })
 
     it('is case sensitive', () => {
-      expect(getCountryName('usd')).toBe('usd')  // Should return input for incorrect case
-      expect(getCountryName('USD')).toBe('United States')
+      const invalidCase = 'usd'
+      expect(getCountryName(invalidCase)).toBe('usd')  // Should return input for incorrect case
+      expect(getCountryName('USD' as CurrencyCode)).toBe('United States')
     })
 
-    // Test all currencies in the mapping
     it('returns correct names for all supported currencies', () => {
-      const expectedMappings = {
+      const expectedMappings: Record<CurrencyCode, string> = {
         'AUD': 'Australia',
         'BGN': 'Bulgaria',
         'BRL': 'Brazil',
@@ -76,7 +76,7 @@ describe('countryMapping', () => {
       }
 
       Object.entries(expectedMappings).forEach(([currency, country]) => {
-        expect(getCountryName(currency)).toBe(country)
+        expect(getCountryName(currency as CurrencyCode)).toBe(country)
       })
     })
   })
@@ -98,12 +98,12 @@ describe('countryMapping', () => {
     })
 
     it('returns undefined for unknown currency', () => {
-      expect(currencyToCode['XXX']).toBeUndefined()
+      // Using type assertion to bypass TypeScript check for testing purposes
+      expect((currencyToCode as Record<string, string | undefined>)['XXX']).toBeUndefined()
     })
 
-    // New test
     it('verifies all currency to code mappings', () => {
-      const expectedMappings = {
+      const expectedMappings: Record<CurrencyCode, string> = {
         'AUD': 'AU',
         'BGN': 'BG',
         'BRL': 'BR',
@@ -139,7 +139,7 @@ describe('countryMapping', () => {
       }
 
       Object.entries(expectedMappings).forEach(([currency, code]) => {
-        expect(currencyToCode[currency]).toBe(code)
+        expect(currencyToCode[currency as CurrencyCode]).toBe(code)
       })
     })
   })
