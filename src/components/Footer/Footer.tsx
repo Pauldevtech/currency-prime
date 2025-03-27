@@ -6,7 +6,8 @@ import {
   FooterSection,
   SectionTitle,
   FooterText,
-  FooterLink
+  FooterLink,
+  FooterNavigation
 } from './styles';
 
 const Footer: FC = () => {
@@ -21,29 +22,31 @@ const Footer: FC = () => {
           </FooterText>
         </FooterSection>
 
-        <FooterSection>
-          <SectionTitle>Services</SectionTitle>
-          <FooterLink href="/converter">Currency Converter</FooterLink>
-          <FooterLink href="/rates">Exchange Rates</FooterLink>
-          <FooterLink href="/historical">Historical Data</FooterLink>
-          <FooterLink href="/alerts">Rate Alerts</FooterLink>
-        </FooterSection>
+        <FooterNavigation>
+          <FooterSection>
+            <SectionTitle>Services</SectionTitle>
+            <FooterLink href="/converter">Converter</FooterLink>
+            <FooterLink href="/rates">Exchange Rates</FooterLink>
+            <FooterLink href="/historical">Historical Data</FooterLink>
+            <FooterLink href="/alerts">Rate Alerts</FooterLink>
+          </FooterSection>
 
-        <FooterSection>
-          <SectionTitle>Company</SectionTitle>
-          <FooterLink href="/about">About Us</FooterLink>
-          <FooterLink href="/contact">Contact</FooterLink>
-          <FooterLink href="/blog">Blog</FooterLink>
-          <FooterLink href="/careers">Careers</FooterLink>
-        </FooterSection>
+          <FooterSection>
+            <SectionTitle>Company</SectionTitle>
+            <FooterLink href="/about">About Us</FooterLink>
+            <FooterLink href="/contact">Contact</FooterLink>
+            <FooterLink href="/blog">Blog</FooterLink>
+            <FooterLink href="/careers">Careers</FooterLink>
+          </FooterSection>
 
-        <FooterSection>
-          <SectionTitle>Legal</SectionTitle>
-          <FooterLink href="/privacy">Privacy Policy</FooterLink>
-          <FooterLink href="/terms">Terms of Service</FooterLink>
-          <FooterLink href="/cookies">Cookie Policy</FooterLink>
-          <FooterLink href="/disclaimer">Disclaimer</FooterLink>
-        </FooterSection>
+          <FooterSection>
+            <SectionTitle>Legal</SectionTitle>
+            <FooterLink href="/privacy">Privacy Policy</FooterLink>
+            <FooterLink href="/terms">Terms of Service</FooterLink>
+            <FooterLink href="/cookies">Cookie Policy</FooterLink>
+            <FooterLink href="/disclaimer">Disclaimer</FooterLink>
+          </FooterSection>
+        </FooterNavigation>
       </FooterContainer>
     </FooterWrapper>
   );

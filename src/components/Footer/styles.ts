@@ -17,49 +17,60 @@ export const FooterContainer = styled(Container)`
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  justify-items: center; // Center on mobile
 
   ${devices.tablet} {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     gap: 2rem;
+    justify-content: space-between;
+    justify-items: start; // Reset on tablet
+  }
+`;
+
+export const FooterNavigation = styled.div`
+  display: none;
+
+  ${devices.tablet} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-self: end;
+    width: fit-content;
+    text-align: center;
   }
 `;
 
 export const FooterSection = styled.section<{ $isLogo?: boolean }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ $isLogo }) => ($isLogo ? 'center' : 'flex-start')};
-  text-align: ${({ $isLogo }) => ($isLogo ? 'center' : 'left')};
-
-  display: ${({ $isLogo }) => ($isLogo ? 'flex' : 'none')};
+  align-items: center; // Center on mobile
+  text-align: center; // Center on mobile
 
   ${devices.tablet} {
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
+    align-items: ${({ $isLogo }) => ($isLogo ? 'flex-start' : 'center')};
+    text-align: ${({ $isLogo }) => ($isLogo ? 'left' : 'center')};
+    min-width: 140px;
   }
 `;
 
 export const SectionTitle = styled.h3`
   font-size: 0.875rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.accent};
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin: 0 0 1rem;
+  margin: 0 0 0.3rem;
   font-family: ${({ theme }) => theme.fonts.body};
 `;
 
 export const FooterText = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
-  margin: 0.25rem 0;
-  line-height: 1.6;
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
   font-family: ${({ theme }) => theme.fonts.body};
-
-  ${devices.tablet} {
-    font-size: 0.875rem;
-    margin: 0.5rem 0;
-  }
+  max-width: 200px;
+  text-align: center; // Ensure text is centered
 `;
 
 export const FooterLink = styled.a`
