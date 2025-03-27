@@ -1,18 +1,13 @@
 export const theme = {
   colors: {
-    primary: "#fff",
-    primaryLight: "#eff2f6",
+    background: "#ffffff",
+    surface: "#eff2f6",
+    surfaceLight: "#f7f9fc",
     accent: "#3c42e5",
-    background: "#f6f8fa",
-    text: "#0F172A",
-    white: "#FFFFFF",
-    black: "#000000",
+    text: "#000000",
   },
-
   fonts: {
-    body: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    heading: "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    body: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
   },
   shadows: {
     small: "0 1px 3px rgba(0, 0, 0, 0.1)",

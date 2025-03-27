@@ -3,7 +3,6 @@ import { devices } from "../../styles/breakpoints";
 
 export const ConverterContainer = styled.div`
   max-width: 500px;
-  padding: 0rem 1rem 1rem 1rem;
 
   @media (max-width: ${devices.tablet}) {
     margin: 1rem auto;
@@ -11,8 +10,7 @@ export const ConverterContainer = styled.div`
   }
 
   ${devices.tablet} {
-    padding: 0rem 1rem 1rem 1rem;
-    margin: 4rem auto;
+    padding: 0rem 0rem 0rem 2rem;
   }
 `;
 
@@ -66,7 +64,7 @@ export const ConverterContent = styled.div`
 `;
 
 export const ConverterCard = styled.div`
-  background: ${({ theme }) => theme.colors.primaryLight};
+  background: ${({ theme }) => theme.colors.surface};
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02);
@@ -96,7 +94,7 @@ export const Label = styled.label`
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => `${theme.colors.background}30`};
   padding: 0.4rem 0.5rem 0.5rem 1rem
   border-radius: ${({ theme }) => theme.borderRadius.small};
@@ -146,13 +144,13 @@ export const Input = styled.input`
 
 export const Select = styled.select`
   padding: 0.75rem 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.background};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   font-size: 1rem;
   font-family: inherit;
   width: 100%;
   cursor: pointer;
-  background-color: ${({ theme }) => `${theme.colors.white}`};
+  background-color: ${({ theme }) => `${theme.colors.background}`};
   appearance: none; // Add this to control the arrow appearance
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;

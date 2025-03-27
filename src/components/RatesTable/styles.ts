@@ -9,7 +9,7 @@ export const TableContainer = styled.div`
   }
 
   ${devices.tablet} {
-    margin: 4rem auto;
+    margin: 0rem auto;
   }
 `;
 
@@ -31,7 +31,7 @@ export const TableHeader = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   ${devices.tablet} {
@@ -121,8 +121,8 @@ export const Th = styled.th<{ $hideOnMobile?: boolean }>`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: ${({ theme }) => theme.colors.primaryLight};
-  color: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.text};
 
   @media (max-width: 768px) {
     display: ${({ $hideOnMobile }) => ($hideOnMobile ? "none" : "table-cell")};
@@ -156,11 +156,11 @@ export const Tr = styled.tr`
   }
 
   &:nth-child(odd) {
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.background};
   }
 
   &:nth-child(even) {
-    background: ${({ theme }) => theme.colors.background}; // Changed from primary10 to primaryLight
+    background: ${({ theme }) => theme.colors.surfaceLight}; // Changed from primary10 to primaryLight
   }
 `;
 

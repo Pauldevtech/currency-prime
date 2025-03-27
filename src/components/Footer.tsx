@@ -5,9 +5,10 @@ import { devices } from '../styles/breakpoints';
 import { Container } from './Container/Container';
 
 const FooterWrapper = styled.footer`
-  background-color: ${({ theme }) => theme.colors.background};
-  border-top: 1px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.surfaceLight};
+  border-top: 1px solid ${({ theme }) => theme.colors.surface};
   padding: 1rem 0;
+  margin-top: 2rem;
 
   ${devices.tablet} {
     padding: 2rem 0;

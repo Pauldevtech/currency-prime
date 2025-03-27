@@ -4,7 +4,7 @@ import { devices } from "../../styles/breakpoints";
 import { Container } from "../Container/Container";
 
 export const HeaderWrapper = styled.header`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   position: fixed;
   width: 100%;
   top: 0;
@@ -43,7 +43,7 @@ export const NavLinks = styled.nav`
 `;
 
 export const NavLink = styled.a`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;

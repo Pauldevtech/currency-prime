@@ -5,7 +5,7 @@ import { Container } from "../components/Container/Container";
 
 export const Hero = styled.section`
   height: auto;
-  min-height: 25vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   text-align: center;
@@ -16,6 +16,7 @@ export const Hero = styled.section`
 
   ${devices.tablet} {
     margin-top: ${({ theme }) => theme.layout.headerHeightDesktop};
+    margin-bottom: 1rem;
   }
 `;
 
@@ -24,7 +25,7 @@ export const HeroContent = styled(Container)`
 
   h1 {
     font-size: 2rem;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.text};
     margin-bottom: 1rem;
 
     ${devices.tablet} {
@@ -34,7 +35,7 @@ export const HeroContent = styled(Container)`
 
   p {
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.text};
 
     ${devices.tablet} {
       font-size: 1.2rem;
