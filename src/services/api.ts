@@ -6,9 +6,13 @@ export interface ExchangeRate {
   rate: number;
 }
 
+const API_URL = import.meta.env.PROD 
+  ? '/api/rates' // Production URL
+  : 'http://localhost:3001/api/rates'; // Development URL
+
 export const fetchExchangeRates = async (): Promise<ExchangeRate[]> => {
   try {
-    const response = await fetch('https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt');
+    const response = await fetch(API_URL);
     const data = await response.text();
     
     const lines = data.split('\n');
