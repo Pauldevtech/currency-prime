@@ -231,19 +231,21 @@ export const CustomFlag = styled.img`
   }
 `;
 
+// In styles.ts, update the LoadingContainer and LoadingSpinner
 export const LoadingContainer = styled.div`
-  text-align: center;
-  padding-top: 100px;
-  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
 `;
 
 export const LoadingSpinner = styled.div`
   width: 40px;
   height: 40px;
-  border: 3px solid ${({ theme }) => `${theme.colors.background}20`};
-  border-top: 3px solid ${({ theme }) => theme.colors.background};
+  border: 3px solid ${({ theme }) => `${theme.colors.accent}20`};
+  border-top: 3px solid ${({ theme }) => theme.colors.accent};
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.8s linear infinite;
   margin: 0 auto;
 
   @keyframes spin {

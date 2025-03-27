@@ -78,7 +78,7 @@ const CurrencyConverter: FC = () => {
   return (
     <ConverterContainer>
       <ConverterHeader>
-        <ConverterTitle>Converter</ConverterTitle>
+        <ConverterTitle>Currency Converter</ConverterTitle>
       </ConverterHeader>
       <ConverterContent>
         <ConverterCard>
