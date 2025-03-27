@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from '../App'
 
-// Mock the child components to simplify testing
+// Mock components
 vi.mock('../components/Header/Header', () => ({
   default: () => <div data-testid="header">Header</div>
 }))
@@ -19,19 +19,19 @@ vi.mock('../components/CurrencyConverter/CurrencyConverter', () => ({
 describe('App', () => {
   it('renders the hero title', () => {
     render(<App />)
-    const titleElement = screen.getByText('Exchange Currencies with Ease')
+    const titleElement = screen.getByText('Currency Exchange Made Simple')
     expect(titleElement).toBeDefined()
   })
 
   it('renders the hero subtitle', () => {
     render(<App />)
-    const subtitleElement = screen.getByText('Discover real-time exchange rates and convert currencies effortlessly.')
+    const subtitleElement = screen.getByText("Get real-time exchange rates and convert currencies with ease using Currency Prime's powerful tools.")
     expect(subtitleElement).toBeDefined()
   })
 
   it('renders the footer text', () => {
     render(<App />)
-    const footerElement = screen.getByText('Currency Prime | Exchange Rate 2005')
+    const footerElement = screen.getByText('Real-time currency conversion and exchange rates for over 170 currencies worldwide. Stay informed with live updates and historical data.')
     expect(footerElement).toBeDefined()
   })
 
@@ -46,16 +46,13 @@ describe('App', () => {
     render(<App />)
     const mainContent = screen.getByRole('main')
     expect(mainContent).toBeDefined()
-    expect(mainContent.id).toBe('converter-rates')
+    expect(mainContent.getAttribute('id')).toBe('converter-rates')
   })
 
   it('provides theme and query client context to components', () => {
     const { container } = render(<App />)
-    // Check if GlobalStyles are applied (body should have styles)
     expect(container.parentElement).toBeInTheDocument()
     
-    // Check if main components are wrapped in necessary providers
-    // by verifying they render without provider-related errors
     expect(() => {
       screen.getByTestId('currency-converter')
       screen.getByTestId('rates-table')

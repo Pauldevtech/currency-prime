@@ -29,7 +29,12 @@ const App = () => {
             <p>Get real-time exchange rates and convert currencies with ease using Currency Prime's powerful tools.</p>
           </HeroContent>
         </Hero>
-        <MainContent id="converter-rates">
+        <MainContent 
+          as="main" 
+          id="converter-rates"
+          role="main"
+          aria-label="Currency converter and rates section"
+        >
           <RatesTable />
           <CurrencyConverter />
         </MainContent>

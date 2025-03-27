@@ -21,9 +21,23 @@ const Header: React.FC = () => {
         <div onClick={scrollToTop} style={{ cursor: 'pointer' }}>
           <Logo />
         </div>
-        <NavLinks>
-          <NavLink onClick={scrollToTop} href="#home">Home</NavLink>
-          <NavLink onClick={scrollToMain} href="#converter-rates">Rates/Converter</NavLink>
+        <NavLinks role="navigation" aria-label="Main navigation">
+          <NavLink 
+            onClick={scrollToTop} 
+            href="#home"
+            role="link"
+            aria-label="Home"
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            onClick={scrollToMain} 
+            href="#converter-rates"
+            role="link"
+            aria-label="Rates/Converter"
+          >
+            Rates/Converter
+          </NavLink>
         </NavLinks>
       </HeaderContent>
     </HeaderWrapper>
