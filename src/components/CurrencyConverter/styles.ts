@@ -127,12 +127,12 @@ export const Input = styled.input`
   font-size: 1rem;
   font-family: inherit;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.background};
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
-    background-color: ${({ theme }) => theme.colors.white};
+    border-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 
   &::-webkit-inner-spin-button,
@@ -166,7 +166,7 @@ export const Select = styled.select`
 export const ResultContainer = styled.div`
   margin-top: 1.5rem;
   padding: 1.25rem;
-  background: ${({ theme }) => `${theme.colors.background}`};
+  background: ${({ theme }) => `${theme.colors.surfaceLight}`};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   display: flex;
   flex-direction: column;
@@ -200,8 +200,8 @@ export const LoadingContainer = styled.div`
 export const LoadingSpinner = styled.div`
   width: 40px;
   height: 40px;
-  border: 3px solid ${({ theme }) => `${theme.colors.primary}20`};
-  border-top: 3px solid ${({ theme }) => theme.colors.primary};
+  border: 3px solid ${({ theme }) => `${theme.colors.background}20`};
+  border-top: 3px solid ${({ theme }) => theme.colors.background};
   border-radius: 50%;
   animation: spin 1s linear infinite;
 

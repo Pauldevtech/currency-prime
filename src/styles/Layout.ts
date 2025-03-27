@@ -9,7 +9,7 @@ export const Hero = styled.section`
   display: flex;
   align-items: center;
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.background};
   margin-top: ${({ theme }) => theme.layout.headerHeightMobile};
   position: relative;
   padding: 2rem 0;

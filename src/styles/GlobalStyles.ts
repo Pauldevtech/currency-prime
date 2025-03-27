@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -13,11 +13,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-       font-family: ${({ theme }) => theme.fonts.body};
-
+    font-family: ${({ theme }) => theme.fonts.body};
     line-height: 1.5;
     overflow-x: hidden;
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 
   img {

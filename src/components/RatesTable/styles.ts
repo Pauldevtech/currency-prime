@@ -14,7 +14,7 @@ export const TableContainer = styled.div`
 `;
 
 export const TableCard = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background};
   border-radius: ${({ theme }) => theme.borderRadius.large};
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.02), 0 16px 24px rgba(0, 0, 0, 0.03);
   overflow: hidden;
@@ -78,7 +78,7 @@ export const TableContent = styled.div`
 `;
 
 export const TableWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -246,8 +246,8 @@ export const LoadingContainer = styled.div`
 export const LoadingSpinner = styled.div`
   width: 40px;
   height: 40px;
-  border: 3px solid ${({ theme }) => `${theme.colors.primary}20`};
-  border-top: 3px solid ${({ theme }) => theme.colors.primary};
+  border: 3px solid ${({ theme }) => `${theme.colors.background}20`};
+  border-top: 3px solid ${({ theme }) => theme.colors.background};
   border-radius: 50%;
   animation: spin 1s linear infinite;
 

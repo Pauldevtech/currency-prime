@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const LogoWrapper = styled.div`
   display: flex;
@@ -15,5 +15,5 @@ export const LogoSymbol = styled.div`
 export const LogoText = styled.span`
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background};
 `;
