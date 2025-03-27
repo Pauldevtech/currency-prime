@@ -35,7 +35,7 @@ describe('countryMapping', () => {
 
     it('is case sensitive', () => {
       const invalidCase = 'usd'
-      expect(getCountryName(invalidCase)).toBe('usd')  // Should return input for incorrect case
+      expect(getCountryName(invalidCase)).toBe('usd') 
       expect(getCountryName('USD' as CurrencyCode)).toBe('United States')
     })
 

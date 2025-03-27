@@ -1,4 +1,3 @@
-// src/styles/theme.ts
 import { DefaultTheme } from 'styled-components';
 
 export interface Theme extends DefaultTheme {
@@ -8,7 +7,7 @@ export interface Theme extends DefaultTheme {
     surfaceLight: string;
     accent: string;
     text: string;
-    error: string;  // Add error color as it's used in ErrorContainer
+    error: string;
   };
   fonts: {
     body: string;

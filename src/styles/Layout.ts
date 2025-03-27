@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { devices } from "./breakpoints";
 import { Container } from "../components/Container/Container";
 
-// Hero section styles
 export const Hero = styled.section`
   height: auto;
   min-height: 30vh;
@@ -43,8 +42,6 @@ export const HeroContent = styled(Container)`
   }
 `;
 
-// Main content styles
-// 400px accounts for header, hero, and footer heights combined
 export const MainContent = styled(Container)`
   min-height: calc(100vh - 400px);
   display: flex;

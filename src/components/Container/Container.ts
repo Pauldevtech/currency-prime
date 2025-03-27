@@ -1,4 +1,3 @@
-// src/components/Container/Container.ts
 import styled from 'styled-components';
 
 export const Container = styled.div`

@@ -1,4 +1,3 @@
-// src/services/api.ts
 export interface ExchangeRate {
   country: string;
   currency: string;

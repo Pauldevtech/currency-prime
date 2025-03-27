@@ -1,4 +1,3 @@
-// src/utils/flags.ts
 export const getCountryFlag = (countryCode: string): string => {
   // Regional Indicator Symbol Letters A-Z are Unicode 127462-127487
   // 127397 + ASCII code of uppercase letter gives the corresponding regional indicator
