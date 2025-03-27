@@ -1,4 +1,3 @@
-// src/components/Header/styles.ts
 import styled from "styled-components";
 import { devices } from "../../styles/breakpoints";
 import { Container } from "../Container/Container";

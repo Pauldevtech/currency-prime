@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, FC } from "react";
+import { useExchangeRates } from "../../hooks/useExchangeRates";
 import {
   ConverterContainer,
   ConverterHeader,
@@ -17,9 +18,8 @@ import {
   LoadingSpinner,
   ErrorContainer,
 } from "./styles";
-import { useExchangeRates } from "../../hooks/useExchangeRates";
 
-const CurrencyConverter: React.FC = () => {
+const CurrencyConverter: FC = () => {
   const [amount, setAmount] = useState<string>("");
   const [currency, setCurrency] = useState<string>("EUR");
   const [result, setResult] = useState<string>("");
@@ -27,9 +27,8 @@ const CurrencyConverter: React.FC = () => {
 
   const { data: rates, isLoading, error } = useExchangeRates();
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Remove leading zeros and limit to 22 digits
     const cleanedValue = value.replace(/^0+(?=\d)/, "").slice(0, 22);
     setAmount(cleanedValue);
   };
@@ -48,7 +47,6 @@ const CurrencyConverter: React.FC = () => {
     }
   }, [amount, currency, rates]);
 
-  // In your CurrencyConverter.tsx, find the loading state render
   if (isLoading) {
     return (
       <ConverterContainer>
@@ -105,8 +103,9 @@ const CurrencyConverter: React.FC = () => {
               <Select
                 id="currency"
                 value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                aria-label="Select currency">
+                onChange={(e: ChangeEvent<HTMLSelectElement>) => setCurrency(e.target.value)}
+                aria-label="Select currency"
+              >
                 {rates?.map((rate) => (
                   <option key={rate.code} value={rate.code}>
                     {rate.code}

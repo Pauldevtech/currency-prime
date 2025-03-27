@@ -1,19 +1,34 @@
 import styled from "styled-components";
 
-export const LogoWrapper = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 `;
 
-export const LogoSymbol = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.accent};
+export const LogoSVG = styled.svg`
+  width: 36px;
+  height: 36px;
+
+  .circle-bg {
+    fill: ${({ theme }) => theme.colors.surface};
+  }
+
+  .symbol-primary {
+    fill: ${({ theme }) => theme.colors.accent};
+  }
 `;
 
-export const LogoText = styled.span`
-  font-size: 1.5rem;
+interface LogoTextProps {
+  variant?: "header" | "footer";
+}
+
+export const LogoText = styled.div<LogoTextProps>`
+  font-size: ${({ variant }) =>
+    variant === "footer" ? "1.125rem" : "1.25rem"};
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.background};
+  font-family: ${({ theme }) => theme.fonts.body};
+  color: ${({ theme }) => theme.colors.text};
+  letter-spacing: -0.5px;
+  margin: 0;
 `;

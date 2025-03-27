@@ -1,4 +1,4 @@
-// src/components/Footer/Footer.tsx
+import { FC } from 'react';
 import Logo from '../Logo/Logo';
 import {
   FooterWrapper,
@@ -9,9 +9,9 @@ import {
   FooterLink
 } from './styles';
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
-    <FooterWrapper>
+    <FooterWrapper role="contentinfo">
       <FooterContainer>
         <FooterSection $isLogo>
           <Logo variant="footer" />
@@ -23,26 +23,26 @@ const Footer = () => {
 
         <FooterSection>
           <SectionTitle>Services</SectionTitle>
-          <FooterLink href="#">Currency Converter</FooterLink>
-          <FooterLink href="#">Exchange Rates</FooterLink>
-          <FooterLink href="#">Historical Data</FooterLink>
-          <FooterLink href="#">Rate Alerts</FooterLink>
+          <FooterLink href="/converter">Currency Converter</FooterLink>
+          <FooterLink href="/rates">Exchange Rates</FooterLink>
+          <FooterLink href="/historical">Historical Data</FooterLink>
+          <FooterLink href="/alerts">Rate Alerts</FooterLink>
         </FooterSection>
 
         <FooterSection>
           <SectionTitle>Company</SectionTitle>
-          <FooterLink href="#">About Us</FooterLink>
-          <FooterLink href="#">Contact</FooterLink>
-          <FooterLink href="#">Blog</FooterLink>
-          <FooterLink href="#">Careers</FooterLink>
+          <FooterLink href="/about">About Us</FooterLink>
+          <FooterLink href="/contact">Contact</FooterLink>
+          <FooterLink href="/blog">Blog</FooterLink>
+          <FooterLink href="/careers">Careers</FooterLink>
         </FooterSection>
 
         <FooterSection>
           <SectionTitle>Legal</SectionTitle>
-          <FooterLink href="#">Privacy Policy</FooterLink>
-          <FooterLink href="#">Terms of Service</FooterLink>
-          <FooterLink href="#">Cookie Policy</FooterLink>
-          <FooterLink href="#">Disclaimer</FooterLink>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+          <FooterLink href="/terms">Terms of Service</FooterLink>
+          <FooterLink href="/cookies">Cookie Policy</FooterLink>
+          <FooterLink href="/disclaimer">Disclaimer</FooterLink>
         </FooterSection>
       </FooterContainer>
     </FooterWrapper>

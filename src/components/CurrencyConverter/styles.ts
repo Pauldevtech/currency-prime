@@ -3,14 +3,11 @@ import { devices } from "../../styles/breakpoints";
 
 export const ConverterContainer = styled.div`
   max-width: 500px;
-
-  @media (max-width: ${devices.tablet}) {
-    margin: 1rem auto;
-    padding: 0;
-  }
+  padding: 0;
 
   ${devices.tablet} {
-    padding: 0rem 0rem 0rem 2rem;
+    margin: 0;
+    padding: 0 0 0 2rem;
   }
 `;
 
@@ -18,7 +15,6 @@ export const ConverterHeader = styled.div`
   padding: 0.3rem 0.8rem;
   margin-top: 2rem;
   background: ${({ theme }) => `${theme.colors.accent}10`};
-
   border-bottom: 1px solid ${({ theme }) => `${theme.colors.background}50`};
   display: flex;
   justify-content: space-between;
@@ -59,7 +55,7 @@ export const ConverterContent = styled.div`
   padding: 0.5rem;
 
   ${devices.tablet} {
-    padding: 0.8rem 1rem 1rem 1rem;
+    padding: 0.8rem 1rem 1rem;
   }
 `;
 
@@ -68,12 +64,11 @@ export const ConverterCard = styled.div`
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02);
-  padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.4rem 0.5rem 0.5rem;
   margin: 0 -0.5rem;
 
   ${devices.tablet} {
     padding: 0.8rem 1rem 1rem 0.7rem;
-
     margin: 0 -1rem;
   }
 `;
@@ -96,11 +91,11 @@ export const Label = styled.label`
   letter-spacing: 0.05em;
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => `${theme.colors.background}30`};
-  padding: 0.4rem 0.5rem 0.5rem 1rem
+  padding: 0.4rem 0.5rem 0.5rem 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   width: fit-content;
 
-    ${devices.tablet} {
+  ${devices.tablet} {
     padding: 0.5rem 1.2rem;
     text-align: center;
   }
@@ -131,7 +126,6 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.background};
     background-color: ${({ theme }) => theme.colors.background};
   }
 
@@ -150,8 +144,8 @@ export const Select = styled.select`
   font-family: inherit;
   width: 100%;
   cursor: pointer;
-  background-color: ${({ theme }) => `${theme.colors.background}`};
-  appearance: none; // Add this to control the arrow appearance
+  background-color: ${({ theme }) => theme.colors.background};
+  appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 1rem center;
@@ -159,14 +153,13 @@ export const Select = styled.select`
 
   &:focus {
     outline: none;
-    background-color: ${({ theme }) => `${theme.colors.background}`};
   }
 `;
 
 export const ResultContainer = styled.div`
   margin-top: 1.5rem;
   padding: 1.25rem;
-  background: ${({ theme }) => `${theme.colors.surfaceLight}`};
+  background: ${({ theme }) => theme.colors.surfaceLight};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   display: flex;
   flex-direction: column;
@@ -178,10 +171,6 @@ export const ResultValue = styled.div`
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
   text-align: start;
-
-  ${devices.tablet} {
-    font-size: 1rem;
-  }
 `;
 
 export const ExchangeRate = styled.div`
@@ -206,12 +195,8 @@ export const LoadingSpinner = styled.div`
   animation: spin 1s linear infinite;
 
   @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 `;
 

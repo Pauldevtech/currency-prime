@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import { HeaderWrapper, HeaderContent, NavLinks, NavLink } from "./styles";
 import Logo from "../Logo/Logo";
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -25,7 +25,6 @@ const Header: React.FC = () => {
           <NavLink 
             onClick={scrollToTop} 
             href="#home"
-            role="link"
             aria-label="Home"
           >
             Home
@@ -33,7 +32,6 @@ const Header: React.FC = () => {
           <NavLink 
             onClick={scrollToMain} 
             href="#converter-rates"
-            role="link"
             aria-label="Rates/Converter"
           >
             Rates/Converter

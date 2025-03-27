@@ -1,4 +1,3 @@
-// src/components/Footer/styles.ts
 import styled from 'styled-components';
 import { devices } from '../../styles/breakpoints';
 import { Container } from '../Container/Container';
@@ -17,7 +16,7 @@ export const FooterWrapper = styled.footer`
 export const FooterContainer = styled(Container)`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  gap: 1rem;
 
   ${devices.tablet} {
     grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -25,16 +24,18 @@ export const FooterContainer = styled(Container)`
   }
 `;
 
-export const FooterSection = styled.div<{ $isLogo?: boolean }>`
-  display: ${({ $isLogo }) => ($isLogo ? 'flex' : 'none')};
+export const FooterSection = styled.section<{ $isLogo?: boolean }>`
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: ${({ $isLogo }) => ($isLogo ? 'center' : 'flex-start')};
+  text-align: ${({ $isLogo }) => ($isLogo ? 'center' : 'left')};
+
+  display: ${({ $isLogo }) => ($isLogo ? 'flex' : 'none')};
 
   ${devices.tablet} {
-    display: block;
-    text-align: left;
+    display: flex;
     align-items: flex-start;
+    text-align: left;
   }
 `;
 
@@ -45,7 +46,7 @@ export const SectionTitle = styled.h3`
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0 0 1rem;
-  font-family: ${({ theme }) => theme.fonts.heading};
+  font-family: ${({ theme }) => theme.fonts.body};
 `;
 
 export const FooterText = styled.p`
