@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import { Hero, HeroContent, MainContent } from "./styles/Layout";
 import RatesTable from "./components/RatesTable/RatesTable";
 import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 const queryClient = new QueryClient({
   defaultOptions: {

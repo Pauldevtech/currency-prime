@@ -31,10 +31,9 @@ export const HeaderContent = styled(Container)`
 `;
 
 export const NavLinks = styled.nav`
-  visibility: hidden; // Change from display: none to visibility: hidden
-  
+  display: none;
+
   ${devices.tablet} {
-    visibility: visible; // Change from display: flex to visibility: visible
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px; // Using a direct value since we don't have spacing in theme
+  gap: 8px;
 `;
 
 const LogoSVG = styled.svg`
@@ -28,7 +28,7 @@ const LogoText = styled.div<LogoTextProps>`
   font-size: ${({ variant }) =>
     variant === "footer" ? "1.125rem" : "1.25rem"}; // Direct values since we don't have fontSizes
   font-weight: 700; // Direct value since we don't have fontWeights
-  font-family: ${({ theme }) => theme.fonts.heading};
+  font-family: ${({ theme }) => theme.fonts.body};
   color: ${({ theme }) => theme.colors.text};
   letter-spacing: -0.5px;
   margin: 0;
