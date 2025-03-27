@@ -29,8 +29,8 @@ const App = () => {
           </HeroContent>
         </Hero>
         <MainContent id="converter-rates">
-          <CurrencyConverter />
           <RatesTable />
+          <CurrencyConverter />
         </MainContent>
         <Footer>
           <p>Currency Prime | Exchange Rate 2005</p>

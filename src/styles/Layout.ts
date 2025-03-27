@@ -47,7 +47,6 @@ export const HeroContent = styled.div`
 export const MainContent = styled.main`
   max-width: 1200px;
   margin: 0 auto;
-  // padding: 0 2rem;
   min-height: calc(100vh - 400px);
   display: flex;
   flex-direction: column;
@@ -57,6 +56,15 @@ export const MainContent = styled.main`
     flex-direction: row;
     align-items: flex-start;
     padding: 0 2rem;
+    
+    // Add this to make RatesTable wider
+    & > *:first-child {
+      flex: 2; // Takes up 2 parts of the space
+    }
+    
+    & > *:last-child {
+      flex: 1; // Takes up 1 part of the space
+    }
   }
 `;
 

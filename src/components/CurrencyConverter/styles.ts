@@ -3,7 +3,7 @@ import { devices } from "../../styles/breakpoints";
 
 export const ConverterContainer = styled.div`
   max-width: 500px;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 1rem 1rem;
 
   @media (max-width: ${devices.tablet}) {
     margin: 1rem auto;
@@ -56,20 +56,16 @@ export const ConverterContent = styled.div`
   padding: 0.5rem;
 
   ${devices.tablet} {
-    padding: 1rem;
+    padding: 0.8rem 1rem 1rem 1rem;
   }
 `;
 
 export const ConverterCard = styled.div`
-  min-width: 330px;
-  max-width: 330px;
   background: ${({ theme }) => theme.colors.primaryLight};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   border: 1px solid ${({ theme }) => `${theme.colors.background}40`};
   overflow: hidden;
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 8px 16px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02);
   padding: 0.4rem 0.5rem 0.5rem 0.5rem;
   margin: 0 -0.5rem;
 
@@ -119,7 +115,7 @@ export const InputWrapper = styled.div`
 
 export const Input = styled.input`
   padding: 0.75rem 1rem;
-  border: none; 
+  border: none;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   font-size: 1rem;
   font-family: inherit;
