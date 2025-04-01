@@ -37,9 +37,9 @@ const CurrencyConverter: FC = () => {
     if (amount && !isNaN(Number(amount)) && rates) {
       const currentRate = rates.find((rate) => rate.code === currency);
       if (currentRate) {
-        const converted = (Number(amount) / currentRate.rate).toFixed(2);
+        const converted = ((Number(amount) / currentRate.rate) * currentRate.amount).toFixed(2);
         setResult(converted);
-        setRate(currentRate.rate);
+        setRate(currentRate.rate / currentRate.amount); // Adjust rate per unit
       }
     } else {
       setResult("");

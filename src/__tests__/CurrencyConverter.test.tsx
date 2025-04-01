@@ -20,6 +20,12 @@ const mockRates = [
     currency: 'dollar',
     amount: 1,
     rate: 23.45
+  },
+  {
+    code: 'JPY',
+    currency: 'yen',
+    amount: 100,
+    rate: 16.54
   }
 ]
 
@@ -37,7 +43,6 @@ describe('CurrencyConverter', () => {
       </ThemeProvider>
     )
     
-    // Change this line to match the other tests
     expect(screen.getByText('Currency Converter')).toBeDefined()
     expect(screen.getByLabelText('Amount in CZK')).toBeDefined()
     expect(screen.getByLabelText('Convert to')).toBeDefined()
@@ -128,6 +133,7 @@ describe('CurrencyConverter', () => {
     // Check if currency options are rendered
     expect(screen.getByText('EUR')).toBeDefined()
     expect(screen.getByText('USD')).toBeDefined()
+    expect(screen.getByText('JPY')).toBeDefined()
 
     // Test currency selection
     fireEvent.change(currencySelect, { target: { value: 'USD' } })
@@ -197,5 +203,40 @@ describe('CurrencyConverter', () => {
     resultValue = screen.getByTestId('result-value')
     expect(resultValue.textContent).toContain('4.26')
     expect(resultValue.textContent).toContain('USD')
+  })
+
+  it('handles currencies with different units correctly', () => {
+    (useExchangeRates as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+      isLoading: false,
+      error: null,
+      data: mockRates
+    })
+
+    render(
+      <ThemeProvider theme={theme}>
+        <CurrencyConverter />
+      </ThemeProvider>
+    )
+
+    const amountInput = screen.getByLabelText('Amount in CZK') as HTMLInputElement
+    const currencySelect = screen.getByLabelText('Select currency') as HTMLSelectElement
+
+    // Test JPY conversion (100 JPY = 16.54 CZK)
+    fireEvent.change(amountInput, { target: { value: '100' } })
+    fireEvent.change(currencySelect, { target: { value: 'JPY' } })
+
+    const resultValue = screen.getByTestId('result-value')
+    expect(resultValue).toBeDefined()
+    // 100 CZK * (100/16.54) = around 604.59 JPY
+    expect(resultValue.textContent).toContain('604.59')
+    expect(resultValue.textContent).toContain('JPY')
+
+    // Check the exchange rate display
+    const exchangeRate = screen.getByTestId('exchange-rate')
+    expect(exchangeRate).toBeDefined()
+    expect(exchangeRate.textContent).toContain('1 CZK =')
+    // 1 CZK = approximately 6.05 JPY
+    expect(exchangeRate.textContent).toContain('6.0459')
+    expect(exchangeRate.textContent).toContain('JPY')
   })
 })
